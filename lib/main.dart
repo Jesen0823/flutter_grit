@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/drawer_demo.dart';
+import 'demo/basic_explore_demo.dart';
 import 'demo/bottom_navigator_bar.dart';
 import 'demo/listview_demo.dart';
 import 'model/post.dart';
@@ -58,7 +59,7 @@ class Home extends StatelessWidget {
         body: TabBarView(
           children: [
             ListViewDemo(),
-            Icon(Icons.change_history, size: 128.0, color: Colors.black12),
+            BasicExploreDemo(),
             Icon(Icons.bike_scooter, size: 128.0, color: Colors.black12)
           ],
         ),
