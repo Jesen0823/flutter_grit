@@ -5,8 +5,20 @@ class BasicExploreDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green[100]!.withOpacity(0.4),
-
+      //color: Colors.green[100]!.withOpacity(0.4),
+      // 不用颜色，用图像
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/advert_1.jpg"),
+          alignment: Alignment.topCenter,
+          repeat: ImageRepeat.repeatX,
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+              Colors.indigoAccent[400]!.withOpacity(0.5),
+              BlendMode.hardLight,
+          )
+        )
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
