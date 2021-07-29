@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BasicExploreDemo extends StatelessWidget {
@@ -5,6 +6,7 @@ class BasicExploreDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.green[100]!.withOpacity(0.4),
+
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -29,7 +31,34 @@ class BasicExploreDemo extends StatelessWidget {
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20.0),
                 topRight: Radius.circular(36.0),
-              )
+              ),
+              boxShadow: [
+                BoxShadow(
+                  // 偏移量，内/外
+                  offset: Offset(4.0,0.0),
+                  color: Color.fromRGBO(16, 28, 200, 1.0),
+                  // 模糊程度
+                  blurRadius: 24.0,
+                  // 阴影扩散
+                  spreadRadius: -9.0,
+                )
+              ],
+              shape: BoxShape.rectangle,
+              // 渐变
+              /*gradient: RadialGradient(
+                colors: [
+                  Color.fromRGBO(7, 102, 255, 1.0),
+                  Color.fromRGBO(3, 28, 128, 1.0),
+                ],
+              ),*/
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(7, 102, 255, 1.0),
+                  Color.fromRGBO(3, 28, 128, 1.0),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
           ),
         ],
