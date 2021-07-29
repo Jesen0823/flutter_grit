@@ -60,13 +60,49 @@ class Home extends StatelessWidget {
             Icon(Icons.bike_scooter, size: 128.0, color: Colors.black12)
           ],
         ),
-        drawer: Container(
-          color: Colors.white,
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
             children: [
-              Text("This is a Drawer")
+              DrawerHeader(
+                child: Text("header".toUpperCase()),
+                decoration: BoxDecoration(color: Colors.grey[100]),
+              ),
+              ListTile(
+                title: Text(
+                  "Messages",
+                  textAlign: TextAlign.right,
+                ),
+                // 在左边是leading,右边是trailing
+                trailing: Icon(
+                  Icons.message,
+                  color: Colors.black26,
+                  size: 24.0,
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  "Favorite",
+                  textAlign: TextAlign.right,
+                ),
+                // 在左边是leading,右边是trailing
+                trailing: Icon(
+                  Icons.favorite,
+                  color: Colors.black26,
+                  size: 24.0,
+                ),
+              ),ListTile(
+                title: Text(
+                  "Settings",
+                  textAlign: TextAlign.right,
+                ),
+                // 在左边是leading,右边是trailing
+                trailing: Icon(
+                  Icons.settings,
+                  color: Colors.black26,
+                  size: 24.0,
+                ),
+              )
             ],
           ),
         ),
