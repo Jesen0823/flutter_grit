@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_grit/demo/drawer_demo.dart';
+import 'demo/bottom_navigator_bar.dart';
+import 'demo/listview_demo.dart';
 import 'model/post.dart';
 
 void main() => runApp(App());
@@ -7,66 +11,60 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
-      theme: ThemeData(
-        primarySwatch: Colors.yellow
-      )
-    );
+        showSemanticsDebugger: false,
+        home: Home(),
+        theme: ThemeData(
+          primarySwatch: Colors.yellow,
+          highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+          splashColor: Colors.white70,
+        ));
   }
 }
 
 class Home extends StatelessWidget {
-  Widget _listItemBuilder(BuildContext context, int index) {
-    return Container(
-      color: Colors.white,
-      margin: EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          Image.network(posts[index].imageUrl),
-          SizedBox(height: 16.0),
-          Text(
-            posts[index].title,
-            style: Theme.of(context).textTheme.title
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        backgroundColor: Colors.grey[100],
+        appBar: AppBar(
+          /*leading: IconButton(
+            icon: Icon(Icons.menu),
+            tooltip: "Navigation",
+            onPressed: () => debugPrint("click Navigation"),
+          ),*/
+          title: Text('NINGHAO'),
+          actions: [
+            IconButton(
+              onPressed: () => debugPrint("click Search"),
+              icon: Icon(Icons.search),
+              tooltip: "Search",
+            ),
+          ],
+          elevation: 0.0,
+          bottom: TabBar(
+            unselectedLabelColor: Colors.black45,
+            indicatorColor: Colors.blue,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorWeight: 1.0,
+            tabs: [
+              Tab(icon: Icon(Icons.local_activity)),
+              Tab(icon: Icon(Icons.change_history)),
+              Tab(icon: Icon(Icons.bike_scooter)),
+            ],
           ),
-          Text(
-            posts[index].author,
-            style: Theme.of(context).textTheme.subhead
-          ),
-          SizedBox(height: 16.0),
-        ],
+        ),
+        body: TabBarView(
+          children: [
+            ListViewDemo(),
+            Icon(Icons.change_history, size: 128.0, color: Colors.black12),
+            Icon(Icons.bike_scooter, size: 128.0, color: Colors.black12)
+          ],
+        ),
+        drawer: DrawerDemo(),
+        bottomNavigationBar: BottomNavigatorBarDemo(),
       ),
     );
   }
-
-  @override
-    Widget build(BuildContext context) {
-      return Scaffold(
-        backgroundColor: Colors.grey[100],
-        appBar: AppBar(
-          title: Text('NINGHAO'),
-          elevation: 0.0,
-        ),
-        body: ListView.builder(
-          itemCount: posts.length,
-          itemBuilder: _listItemBuilder,
-        )
-      );
-    }
-}
-
-class Hello extends StatelessWidget {
-  @override
-    Widget build(BuildContext context) {
-      return Center(
-        child: Text(
-          'hello',
-          textDirection: TextDirection.ltr,
-          style: TextStyle(
-            fontSize: 40.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          )
-        ),
-      );
-    }
 }
