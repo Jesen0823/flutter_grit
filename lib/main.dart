@@ -10,7 +10,11 @@ class App extends StatelessWidget {
     return MaterialApp(
         showSemanticsDebugger: false,
         home: Home(),
-        theme: ThemeData(primarySwatch: Colors.yellow));
+        theme: ThemeData(
+          primarySwatch: Colors.yellow,
+          highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
+          splashColor: Colors.white70,
+        ));
   }
 }
 
@@ -50,12 +54,10 @@ class Home extends StatelessWidget {
             ),
             body: TabBarView(
               children: [
-                Icon(Icons.local_activity, size: 128.0,color: Colors.black12),
-                Icon(Icons.change_history, size: 128.0,color: Colors.black12),
-                Icon(Icons.bike_scooter, size: 128.0,color: Colors.black12)
+                Icon(Icons.local_activity, size: 128.0, color: Colors.black12),
+                Icon(Icons.change_history, size: 128.0, color: Colors.black12),
+                Icon(Icons.bike_scooter, size: 128.0, color: Colors.black12)
               ],
-            )
-        )
-    );
+            )));
   }
 }
