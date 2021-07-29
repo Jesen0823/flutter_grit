@@ -1,34 +1,47 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BasicExploreDemo extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.green[100]!.withOpacity(0.4),
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            child: Icon(Icons.pool, size:32.0, color: Colors.white,),
-            color: Color.fromRGBO(3, 54, 255, 1.0),
+            child: Icon(
+              Icons.pool,
+              size: 32.0,
+              color: Colors.white,
+            ),
+            //color: Colors.white,
             padding: EdgeInsets.only(left: 10.0, right: 10.0),
             margin: EdgeInsets.all(8.0),
             width: 90.0,
             height: 90.0,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(3, 54, 255, 1.0),
+              border: Border.all(
+                color: Colors.indigoAccent,
+                width: 3.0,
+                style: BorderStyle.solid,
+              ),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(36.0),
+              )
+            ),
           ),
-          RichTextDemo(),
-          TextDemo(),
         ],
       ),
     );
   }
 }
 
-class RichTextDemo extends StatelessWidget{
+class RichTextDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  RichText(
+    return RichText(
       text: TextSpan(
           text: '卡卡西',
           style: TextStyle(
@@ -43,15 +56,13 @@ class RichTextDemo extends StatelessWidget{
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.deepPurpleAccent,
-                )
-            )
-          ]
-      ),
+                ))
+          ]),
     );
   }
 }
 
-class TextDemo extends StatelessWidget{
+class TextDemo extends StatelessWidget {
   final _textStyle = TextStyle(fontSize: 16.0);
   final String _author = "毛姆";
   final String _title = "人性的枷锁";
@@ -60,7 +71,7 @@ class TextDemo extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return   Text(
+    return Text(
       "《$_title》 ---$_author \n  $_context",
       textAlign: TextAlign.left,
       style: _textStyle,
