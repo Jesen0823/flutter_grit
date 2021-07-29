@@ -27,11 +27,11 @@ class Home extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
-          leading: IconButton(
+          /*leading: IconButton(
             icon: Icon(Icons.menu),
             tooltip: "Navigation",
             onPressed: () => debugPrint("click Navigation"),
-          ),
+          ),*/
           title: Text('NINGHAO'),
           actions: [
             IconButton(
@@ -79,6 +79,7 @@ class Home extends StatelessWidget {
                   color: Colors.black26,
                   size: 24.0,
                 ),
+                onTap: () => Navigator.pop(context),
               ),
               ListTile(
                 title: Text(
@@ -91,7 +92,9 @@ class Home extends StatelessWidget {
                   color: Colors.black26,
                   size: 24.0,
                 ),
-              ),ListTile(
+                onTap: () => Navigator.pop(context),
+              ),
+              ListTile(
                 title: Text(
                   "Settings",
                   textAlign: TextAlign.right,
@@ -102,6 +105,7 @@ class Home extends StatelessWidget {
                   color: Colors.black26,
                   size: 24.0,
                 ),
+                onTap: () => Navigator.pop(context),
               )
             ],
           ),
