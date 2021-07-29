@@ -15,6 +15,7 @@ class DrawerDemo extends StatelessWidget{
             accountEmail: Text("kka@test.com"),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.purple,
+              foregroundImage: AssetImage("assets/advert_1.jpg"),
             ),
             decoration: BoxDecoration(
                 color: Colors.grey[100],
