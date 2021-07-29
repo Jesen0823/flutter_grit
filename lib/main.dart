@@ -64,9 +64,25 @@ class Home extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              DrawerHeader(
-                child: Text("header".toUpperCase()),
-                decoration: BoxDecoration(color: Colors.grey[100]),
+              UserAccountsDrawerHeader(
+                accountName: Text(
+                  "Jesen.Mr", style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                accountEmail: Text("kka@test.com"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.purple,
+                ),
+                decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                  image: DecorationImage(
+                    image: NetworkImage("https://resources.ninghao.net/images/childhood-in-a-picture.jpg"),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                        Colors.yellow[400]!.withOpacity(0.6),
+                        BlendMode.hardLight
+                    )
+                  )
+                ),
               ),
               ListTile(
                 title: Text(
