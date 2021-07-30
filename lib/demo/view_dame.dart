@@ -8,6 +8,7 @@ class ViewDemo extends StatelessWidget{
   }
 }
 
+// 使用GridView.extent生成网格视图 子项数量固定
 class GridViewExtentBuilderDemo extends StatelessWidget{
   List<Widget> _buildTiles(int length) {
     return List.generate(
@@ -38,7 +39,7 @@ class GridViewExtentBuilderDemo extends StatelessWidget{
   }
 }
 
-// 利用GridView.count创建网格视图
+// 利用GridView.count创建网格视图 子项数量固定
 class GridViewCountBuilderDemo extends StatelessWidget {
   List<Widget> _buildTiles(int length) {
     return List.generate(
