@@ -65,7 +65,7 @@ class Home extends StatelessWidget {
             BasicExploreDemo(),
             //Icon(Icons.bike_scooter, size: 128.0, color: Colors.black12)
             LayoutDemo(),
-            PageViewBuilderDame(),
+            GridViewBuilderDemo(),
           ],
         ),
         drawer: DrawerDemo(),

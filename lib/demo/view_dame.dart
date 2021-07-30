@@ -1,8 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/model/post.dart';
 
-class PageViewBuilderDame extends StatelessWidget{
-  Widget _pageItemBuilder(BuildContext context, int index){
+class GridViewBuilderDemo extends StatelessWidget {
+  List<Widget> _buildTiles(int length) {
+    return List.generate(
+      length,
+      // 项目的索引
+      (index) => Container(
+        color: Colors.grey[300],
+        alignment: Alignment(0.0, 0.0),
+        child: Text(
+          "Item:$index",
+          style: TextStyle(fontSize: 18.0, color: Colors.blueGrey),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      crossAxisCount: 3,
+      crossAxisSpacing: 16.0,
+      mainAxisSpacing: 10.0,
+      children: _buildTiles(100),
+      // 滚动方向
+      scrollDirection: Axis.vertical,
+    );
+  }
+}
+
+// 普通PageView的使用
+class PageViewBuilderDame extends StatelessWidget {
+  Widget _pageItemBuilder(BuildContext context, int index) {
     return Stack(
       children: [
         SizedBox.expand(
@@ -12,7 +42,7 @@ class PageViewBuilderDame extends StatelessWidget{
           ),
         ),
         Positioned(
-          bottom: 8.0,
+            bottom: 8.0,
             left: 8.0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,8 +55,7 @@ class PageViewBuilderDame extends StatelessWidget{
                   posts[index].author,
                 ),
               ],
-            )
-        ),
+            )),
       ],
     );
   }
@@ -35,12 +64,12 @@ class PageViewBuilderDame extends StatelessWidget{
   Widget build(BuildContext context) {
     return PageView.builder(
       itemCount: posts.length,
-        itemBuilder: _pageItemBuilder,
+      itemBuilder: _pageItemBuilder,
     );
   }
 }
 
-class PageViewDemo extends StatelessWidget{
+class PageViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageView(
@@ -48,7 +77,8 @@ class PageViewDemo extends StatelessWidget{
       pageSnapping: true,
       // 页面滚动方向
       scrollDirection: Axis.vertical,
-      onPageChanged: (currentIndex) => debugPrint("current page: $currentIndex"),
+      onPageChanged: (currentIndex) =>
+          debugPrint("current page: $currentIndex"),
       controller: PageController(
         initialPage: 1,
         // 页面占用可视区域比例，默认1.0
@@ -57,7 +87,7 @@ class PageViewDemo extends StatelessWidget{
       children: [
         Container(
           color: Colors.grey[900],
-          alignment: Alignment(0.0,0.0),
+          alignment: Alignment(0.0, 0.0),
           child: Text(
             "One",
             style: TextStyle(fontSize: 32.0, color: Colors.deepOrangeAccent),
@@ -65,7 +95,7 @@ class PageViewDemo extends StatelessWidget{
         ),
         Container(
           color: Colors.brown[900],
-          alignment: Alignment(0.0,0.0),
+          alignment: Alignment(0.0, 0.0),
           child: Text(
             "Two",
             style: TextStyle(fontSize: 32.0, color: Colors.deepOrangeAccent),
@@ -73,7 +103,7 @@ class PageViewDemo extends StatelessWidget{
         ),
         Container(
           color: Colors.deepOrange[900],
-          alignment: Alignment(0.0,0.0),
+          alignment: Alignment(0.0, 0.0),
           child: Text(
             "Three",
             style: TextStyle(fontSize: 32.0, color: Colors.deepOrangeAccent),
