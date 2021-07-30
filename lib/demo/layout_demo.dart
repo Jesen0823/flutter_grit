@@ -26,6 +26,9 @@ class UseSizedBox extends StatelessWidget{
           width: 80.0,
           height: 120.0,
           child: Container(
+            // child的位置，还可以取值 Alignment.topCenter/topLeft等等
+            alignment: Alignment(0.0, -0.8),
+
             decoration: BoxDecoration(
               color: Color.fromRGBO(3, 54, 255, 1.0),
               borderRadius: BorderRadius.circular(8.0),
