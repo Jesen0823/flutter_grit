@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/drawer_demo.dart';
+import 'package:flutter_grit/demo/layout_demo.dart';
 import 'demo/basic_explore_demo.dart';
 import 'demo/bottom_navigator_bar.dart';
 import 'demo/listview_demo.dart';
@@ -60,7 +61,8 @@ class Home extends StatelessWidget {
           children: [
             ListViewDemo(),
             BasicExploreDemo(),
-            Icon(Icons.bike_scooter, size: 128.0, color: Colors.black12)
+            //Icon(Icons.bike_scooter, size: 128.0, color: Colors.black12)
+            LayoutDemo(),
           ],
         ),
         drawer: DrawerDemo(),
