@@ -4,17 +4,51 @@ class LayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Stack(
-            children: [
-              UseSizedBox(),
-              UseAxisAlignment(),
-            ],
-          )
-        ],
+        child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        // 对它的子部件添加限制，如最小最大
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: 200.0,
+            maxWidth: 200.0,
+          ),
+          child: Container(
+            color: Color.fromRGBO(100, 26, 100, 1.0),
+          ),
+        ),
+      ],
+    ));
+  }
+}
+
+// AspectRatio指定宽高比
+class AspectRatioDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 16.0 / 9.0,
+      child: Container(
+        color: Color.fromRGBO(100, 26, 255, 1.0),
       ),
+    );
+  }
+}
+
+// Stack类似FrameLayout
+class StackDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Stack(
+          children: [
+            UseSizedBox(),
+            UseAxisAlignment(),
+          ],
+        )
+      ],
     );
   }
 }
