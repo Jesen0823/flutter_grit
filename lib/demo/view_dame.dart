@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/model/post.dart';
 
-class ViewDame extends StatelessWidget{
+class PageViewBuilderDame extends StatelessWidget{
   Widget _pageItemBuilder(BuildContext context, int index){
     return Stack(
       children: [
