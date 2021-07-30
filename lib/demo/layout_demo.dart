@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 
-class LayoutDemo extends StatelessWidget{
-
+class LayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: ListView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          UseSizedBox(),
-          UseAxisAlignment(),
+          Stack(
+            children: [
+              UseSizedBox(),
+              UseAxisAlignment(),
+            ],
+          )
         ],
-      )
+      ),
     );
   }
 }
 
-class UseSizedBox extends StatelessWidget{
+class UseSizedBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,7 +54,14 @@ class UseSizedBox extends StatelessWidget{
           child: Container(
             decoration: BoxDecoration(
               color: Color.fromRGBO(40, 100, 90, 1.0),
-              borderRadius: BorderRadius.circular(8.0),
+              //borderRadius: BorderRadius.circular(8.0),
+              shape: BoxShape.circle,
+              gradient: RadialGradient(
+                colors: [
+                  Color.fromRGBO(7, 102, 200, 1.0),
+                  Color.fromRGBO(3, 54, 255, 0.5),
+                ],
+              ),
             ),
             child: Icon(
               Icons.wb_sunny,
@@ -59,13 +70,40 @@ class UseSizedBox extends StatelessWidget{
             ),
           ),
         ),
+        Positioned(
+          child: Icon(
+            Icons.star,
+            size: 10.0,
+            color: Colors.white,
+          ),
+          right: 20.0,
+          top: 20.0,
+        ),
+        Positioned(
+          child: Icon(
+            Icons.star,
+            size: 10.0,
+            color: Colors.white,
+          ),
+          right: 10.0,
+          top: 8.0,
+        ),
+        Positioned(
+          child: Icon(
+            Icons.star,
+            size: 10.0,
+            color: Colors.white,
+          ),
+          right: 19.0,
+          top: 12.0,
+        ),
       ],
     );
   }
 }
 
 // 主轴，交叉轴的使用
-class UseAxisAlignment extends StatelessWidget{
+class UseAxisAlignment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -75,7 +113,10 @@ class UseAxisAlignment extends StatelessWidget{
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         IconBadge(Icons.pool),
-        IconBadge(Icons.umbrella,size: 48.0,),
+        IconBadge(
+          Icons.umbrella,
+          size: 48.0,
+        ),
         IconBadge(Icons.face),
       ],
     );
@@ -83,11 +124,11 @@ class UseAxisAlignment extends StatelessWidget{
 }
 
 // 自定义控件
-class IconBadge extends StatelessWidget{
+class IconBadge extends StatelessWidget {
   final IconData icon;
   final double size;
 
-  IconBadge(this.icon,{this.size = 32.0});
+  IconBadge(this.icon, {this.size = 32.0});
 
   @override
   Widget build(BuildContext context) {
@@ -97,8 +138,8 @@ class IconBadge extends StatelessWidget{
         size: size,
         color: Colors.white,
       ),
-      width: size+60,
-        height: size+60,
+      width: size + 60,
+      height: size + 60,
       color: Color.fromRGBO(3, 54, 255, 1.0),
     );
   }
