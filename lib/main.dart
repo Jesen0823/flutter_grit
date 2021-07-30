@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/drawer_demo.dart';
 import 'package:flutter_grit/demo/layout_demo.dart';
+import 'package:flutter_grit/demo/view_dame.dart';
 import 'demo/basic_explore_demo.dart';
 import 'demo/bottom_navigator_bar.dart';
 import 'demo/listview_demo.dart';
@@ -27,7 +28,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
@@ -54,6 +55,7 @@ class Home extends StatelessWidget {
               Tab(icon: Icon(Icons.local_activity)),
               Tab(icon: Icon(Icons.change_history)),
               Tab(icon: Icon(Icons.bike_scooter)),
+              Tab(icon: Icon(Icons.view_quilt),),
             ],
           ),
         ),
@@ -63,6 +65,7 @@ class Home extends StatelessWidget {
             BasicExploreDemo(),
             //Icon(Icons.bike_scooter, size: 128.0, color: Colors.black12)
             LayoutDemo(),
+            ViewDame(),
           ],
         ),
         drawer: DrawerDemo(),
