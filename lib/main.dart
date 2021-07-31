@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/drawer_demo.dart';
+import 'package:flutter_grit/demo/form_demo.dart';
 import 'package:flutter_grit/demo/layout_demo.dart';
 import 'package:flutter_grit/demo/view_dame.dart';
 import 'package:flutter_grit/demo/navigator_demo.dart';
@@ -17,14 +18,17 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Home(),
+        //home: Home(),
 
         //home: NavigatorDemo(),
-        /*initialRoute: '/',
+        //initialRoute: '/',
+        // 如果初始路由是下面定义的'/form'，则一打开就展示该页面
+        initialRoute: '/form',
         routes: {
-          '/': (context) => NavigatorDemo(),
+          '/': (context) => Home(),
           '/about': (context) => SecondPage(title: 'About -route'),
-        },*/
+          '/form':(context) => FormDemo(),
+        },
         theme: ThemeData(
           primarySwatch: Colors.yellow,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
