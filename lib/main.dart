@@ -6,6 +6,7 @@ import 'package:flutter_grit/demo/view_dame.dart';
 import 'demo/basic_explore_demo.dart';
 import 'demo/bottom_navigator_bar.dart';
 import 'demo/listview_demo.dart';
+import 'demo/sliver_demo.dart';
 import 'model/post.dart';
 
 void main() => runApp(App());
@@ -15,7 +16,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         showSemanticsDebugger: false,
-        home: Home(),
+        home: SliverDemo(),
         theme: ThemeData(
           primarySwatch: Colors.yellow,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
