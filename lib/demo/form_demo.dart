@@ -55,7 +55,27 @@ class TextFieldDemo extends StatefulWidget {
 class _TextFieldDemoState extends State<TextFieldDemo> {
   @override
   Widget build(BuildContext context) {
-    return TextField();
+    return TextField(
+      decoration: InputDecoration(
+        icon: Icon(Icons.subject),
+        labelText: 'Title',
+        hintText: 'Enter the post title',
+        // 文本底部边框,默认是横线边框
+        //border: InputBorder.none,
+        //border: OutlineInputBorder(),
+
+        // 背景被灰色充满
+        filled: true,
+      ),
+      // 每输入一个字符回调一次
+      onChanged: (value){
+        debugPrint('input:$value');
+      },
+      // 输入完成，回调一次最终结果
+      onSubmitted: (value){
+        debugPrint('submitted:$value');
+      },
+    );
   }
 }
 
