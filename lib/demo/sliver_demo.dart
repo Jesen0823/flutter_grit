@@ -7,27 +7,38 @@ class SliverDemo extends StatelessWidget{
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverGrid(
-              delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index){
-                    return Container(
-                      child: Image.network(
-                        posts[index].imageUrl,
-                        fit: BoxFit.cover,
-                      ),
-                    );
-                  },
-                childCount: posts.length,
-              ),
-
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 8.0,
-                mainAxisSpacing: 8.0,
-                childAspectRatio: 1.7,
-              ),
+          SliverPadding(
+              padding: EdgeInsets.all(8.0),
+            sliver: SliverGridDemo(),
           ),
         ],
+      ),
+    );
+  }
+}
+
+// SliverGrid创建列表视图
+class SliverGridDemo extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return SliverGrid(
+      delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index){
+          return Container(
+            child: Image.network(
+              posts[index].imageUrl,
+              fit: BoxFit.cover,
+            ),
+          );
+        },
+        childCount: posts.length,
+      ),
+
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 8.0,
+        mainAxisSpacing: 8.0,
+        childAspectRatio: 1.7,
       ),
     );
   }
