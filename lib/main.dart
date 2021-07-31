@@ -17,8 +17,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: NavigatorDemo(),
+        //home: NavigatorDemo(),
+        initialRoute: '/',
         routes: {
+          '/': (context) => NavigatorDemo(),
           '/about': (context) => SecondPage(title: 'About -route'),
         },
         theme: ThemeData(
@@ -60,7 +62,9 @@ class Home extends StatelessWidget {
               Tab(icon: Icon(Icons.local_activity)),
               Tab(icon: Icon(Icons.change_history)),
               Tab(icon: Icon(Icons.bike_scooter)),
-              Tab(icon: Icon(Icons.view_quilt),),
+              Tab(
+                icon: Icon(Icons.view_quilt),
+              ),
             ],
           ),
         ),
