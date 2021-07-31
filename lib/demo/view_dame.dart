@@ -4,9 +4,36 @@ import 'package:flutter_grit/model/post.dart';
 class ViewDemo extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return GridViewExtentBuilderDemo();
+    return GridBuildBuilderDemo();
   }
 }
+
+// 利用GridView.builder生成GridView
+class GridBuildBuilderDemo extends StatelessWidget{
+
+  Widget _gridItemBuilder(BuildContext context, int index){
+    return Container(
+      child: Image.network(
+        posts[index].imageUrl,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      padding: EdgeInsets.all(8.0),
+      itemCount: posts.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 8.0,
+          mainAxisSpacing: 4.0,
+        ),
+        itemBuilder: _gridItemBuilder);
+  }
+}
+
 
 // 使用GridView.extent生成网格视图 子项数量固定
 class GridViewExtentBuilderDemo extends StatelessWidget{
