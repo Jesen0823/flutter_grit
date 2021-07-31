@@ -10,7 +10,7 @@ class SliverDemo extends StatelessWidget {
           SliverSafeArea(
             sliver: SliverPadding(
               padding: EdgeInsets.all(8.0),
-              sliver: SliverGridDemo(),
+              sliver: SliverListDemo(),
             ),
           ),
         ],
@@ -19,7 +19,36 @@ class SliverDemo extends StatelessWidget {
   }
 }
 
-// SliverGrid创建列表视图
+// SliverList创建列表视图
+class SliverListDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (BuildContext context, int index) {
+          return Padding(
+            padding: EdgeInsets.only(bottom: 32.0),
+            child:Material(
+              borderRadius: BorderRadius.circular(12.0),
+              elevation: 14.0,
+              shadowColor: Colors.grey.withOpacity(0.5),
+              child:  AspectRatio(
+                aspectRatio: 16/9,
+                child: Image.network(
+                  posts[index].imageUrl,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          );
+        },
+        childCount: posts.length,
+      ),
+    );
+  }
+}
+
+// SliverGrid创建Grid列表视图
 class SliverGridDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
