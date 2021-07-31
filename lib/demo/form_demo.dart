@@ -12,11 +12,25 @@ class FormDemo extends StatelessWidget {
       //body: ThemeDemo(),
 
       // 自定义主题，覆盖全局主题
-      body: Theme(
+      /*body: Theme(
         data: ThemeData(
           primaryColor: Colors.green,
         ),
         child: ThemeDemo(),
+      ),*/
+      body: Theme(
+        data: ThemeData(
+          primaryColor: Colors.green,
+        ),
+        child: Container(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextFieldDemo(),
+            ],
+          ),
+        ),
       ),
 
       // 覆盖的时候，除了指定的primaryColor属性被覆盖，其他的仍保留全局
@@ -30,6 +44,23 @@ class FormDemo extends StatelessWidget {
   }
 }
 
+// 表单 TextField
+class TextFieldDemo extends StatefulWidget {
+  const TextFieldDemo({Key? key}) : super(key: key);
+
+  @override
+  _TextFieldDemoState createState() => _TextFieldDemoState();
+}
+
+class _TextFieldDemoState extends State<TextFieldDemo> {
+  @override
+  Widget build(BuildContext context) {
+    return TextField();
+  }
+}
+
+
+// 自定义主题
 class ThemeDemo extends StatelessWidget {
 
   @override
