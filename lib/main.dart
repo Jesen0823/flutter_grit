@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/drawer_demo.dart';
 import 'package:flutter_grit/demo/layout_demo.dart';
 import 'package:flutter_grit/demo/view_dame.dart';
+import 'package:flutter_grit/demo/navigator_demo.dart';
 import 'demo/basic_explore_demo.dart';
 import 'demo/bottom_navigator_bar.dart';
 import 'demo/listview_demo.dart';
@@ -17,6 +18,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: NavigatorDemo(),
+        routes: {
+          '/about': (context) => SecondPage(title: 'About -route'),
+        },
         theme: ThemeData(
           primarySwatch: Colors.yellow,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),

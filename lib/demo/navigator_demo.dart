@@ -14,10 +14,7 @@ class NavigatorDemo extends StatelessWidget{
             ),
             TextButton(
               onPressed: (){
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => Page(title: "About Us"),
-                ),
-                );
+               Navigator.pushNamed(context, '/about');
               },
               child: Text('About'),
             ),
@@ -29,10 +26,10 @@ class NavigatorDemo extends StatelessWidget{
 }
 
 
-class Page extends StatelessWidget {
+class SecondPage extends StatelessWidget {
   final String title;
 
-  Page({
+  SecondPage({
      required this.title
   });
 
