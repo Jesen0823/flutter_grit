@@ -13,6 +13,21 @@ class SliverDemo extends StatelessWidget {
             //pinned: true,
             // 是否浮动在顶部跟着滑动，默认false
             floating: true,
+            expandedHeight: 178.0,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                'flexibleSpace',
+                style: TextStyle(
+                  fontSize: 15.0,
+                  letterSpacing: 3.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              background: Image.network(
+                "https://resources.ninghao.net/images/undo.jpg",
+                fit: BoxFit.cover,
+              ),
+            ),
             title: Text("SliverList & SliverAppBar"),
           ),
           SliverSafeArea(
