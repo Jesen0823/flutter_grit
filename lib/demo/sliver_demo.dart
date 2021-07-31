@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/model/post.dart';
 
-class SliverDemo extends StatelessWidget{
+class SliverDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverPadding(
+          SliverSafeArea(
+            sliver: SliverPadding(
               padding: EdgeInsets.all(8.0),
-            sliver: SliverGridDemo(),
+              sliver: SliverGridDemo(),
+            ),
           ),
         ],
       ),
@@ -18,12 +20,12 @@ class SliverDemo extends StatelessWidget{
 }
 
 // SliverGrid创建列表视图
-class SliverGridDemo extends StatelessWidget{
+class SliverGridDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverGrid(
       delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index){
+        (BuildContext context, int index) {
           return Container(
             child: Image.network(
               posts[index].imageUrl,
@@ -33,7 +35,6 @@ class SliverGridDemo extends StatelessWidget{
         },
         childCount: posts.length,
       ),
-
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 8.0,
