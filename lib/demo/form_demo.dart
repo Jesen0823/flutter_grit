@@ -53,6 +53,23 @@ class TextFieldDemo extends StatefulWidget {
 }
 
 class _TextFieldDemoState extends State<TextFieldDemo> {
+  final _textEditingController = TextEditingController();
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    //_textEditingController.text = 'hi';
+    _textEditingController.addListener(() {
+      debugPrint('_textEditingController, ${_textEditingController.text}');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -75,6 +92,7 @@ class _TextFieldDemoState extends State<TextFieldDemo> {
       onSubmitted: (value){
         debugPrint('submitted:$value');
       },
+      controller: _textEditingController,
     );
   }
 }
