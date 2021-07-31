@@ -5,7 +5,6 @@
 import 'package:flutter/material.dart';
 
 class FormDemo extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +26,7 @@ class FormDemo extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextFieldDemo(),
+              RegisterFormDemo(),
             ],
           ),
         ),
@@ -44,7 +43,49 @@ class FormDemo extends StatelessWidget {
   }
 }
 
-// 表单 TextField
+// 表单案例2：注册用户TextField
+class RegisterFormDemo extends StatefulWidget {
+  const RegisterFormDemo({Key? key}) : super(key: key);
+
+  @override
+  _RegisterFormDemoState createState() => _RegisterFormDemoState();
+}
+
+class _RegisterFormDemoState extends State<RegisterFormDemo> {
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      child: Column(
+        children: [
+          TextFormField(
+            decoration: InputDecoration(labelText: 'UserName'),
+          ),
+          TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(labelText: 'Password'),
+          ),
+          SizedBox(
+            height: 32.0,
+          ),
+          Container(
+            width: double.infinity,
+            child: RaisedButton(
+              color: Theme.of(context).accentColor,
+              child: Text(
+                'Register',
+                style: TextStyle(color: Colors.white),
+              ),
+              elevation: 0.0,
+              onPressed: () {},
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+// 表单案例1： TextField
 class TextFieldDemo extends StatefulWidget {
   const TextFieldDemo({Key? key}) : super(key: key);
 
@@ -85,11 +126,11 @@ class _TextFieldDemoState extends State<TextFieldDemo> {
         filled: true,
       ),
       // 每输入一个字符回调一次
-      onChanged: (value){
+      onChanged: (value) {
         debugPrint('input:$value');
       },
       // 输入完成，回调一次最终结果
-      onSubmitted: (value){
+      onSubmitted: (value) {
         debugPrint('submitted:$value');
       },
       controller: _textEditingController,
@@ -97,10 +138,8 @@ class _TextFieldDemoState extends State<TextFieldDemo> {
   }
 }
 
-
 // 自定义主题
 class ThemeDemo extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
