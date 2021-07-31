@@ -8,6 +8,13 @@ class SliverDemo extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
+          SliverAppBar(
+            // 是否固定不动，默认false.即跟着滑动
+            //pinned: true,
+            // 是否浮动在顶部跟着滑动，默认false
+            floating: true,
+            title: Text("SliverList & SliverAppBar"),
+          ),
           SliverSafeArea(
             sliver: SliverPadding(
               padding: EdgeInsets.all(8.0),
