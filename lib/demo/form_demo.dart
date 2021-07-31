@@ -53,11 +53,27 @@ class RegisterFormDemo extends StatefulWidget {
 
 class _RegisterFormDemoState extends State<RegisterFormDemo> {
   final registerFormKey = GlobalKey<FormState>();
-  late String userName, password;
+  String userName = '';
+  String password = '';
 
   void _submitRegisterForm(){
     registerFormKey.currentState!.save();
+    registerFormKey.currentState!.validate();
     debugPrint('userName: $userName, passWord: $password');
+  }
+
+  String? _validatorUserName(value){
+    if(value.isEmpty){
+      return 'UserName is required';
+    }
+    return null;
+  }
+
+  String? _validatorPassword(value){
+    if(value.isEmpty){
+      return 'password is required';
+    }
+    return null;
   }
 
   @override
@@ -66,17 +82,29 @@ class _RegisterFormDemoState extends State<RegisterFormDemo> {
       child: Column(
         children: [
           TextFormField(
-            decoration: InputDecoration(labelText: 'UserName'),
+            decoration: InputDecoration(
+                labelText: 'UserName',
+                // 预置字段，用来提示信息，比如错误信息
+                helperText: '',
+            ),
             onSaved: (value){
               userName = value!;
             },
+            // 验证表单数据
+            validator: _validatorUserName,
           ),
           TextFormField(
             obscureText: true,
-            decoration: InputDecoration(labelText: 'Password'),
+            decoration: InputDecoration(
+                labelText: 'Password',
+                // 预置字段，用来提示信息，比如错误信息
+                helperText: '',
+            ),
             onSaved: (value){
               password = value!;
             },
+            // 验证表单数据
+            validator: _validatorPassword,
           ),
           SizedBox(
             height: 32.0,
