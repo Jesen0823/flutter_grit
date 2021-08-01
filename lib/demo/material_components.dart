@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/button_demo.dart';
+import 'package:flutter_grit/demo/checkout_demo.dart';
 import 'package:flutter_grit/demo/form_demo.dart';
 import 'package:flutter_grit/demo/popup_menu_button.dart';
 
@@ -15,6 +16,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(
+            title: 'CheckBox',
+            page: CheckoutDemo(),
+          ),
           ListItem(
             title: 'Form',
             page: FormDemo(),
