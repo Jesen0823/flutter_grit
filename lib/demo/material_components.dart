@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/button_demo.dart';
 import 'package:flutter_grit/demo/checkout_demo.dart';
 import 'package:flutter_grit/demo/date_time_demo.dart';
+import 'package:flutter_grit/demo/dialog/simple_dialog.dart';
 import 'package:flutter_grit/demo/form_demo.dart';
 import 'package:flutter_grit/demo/popup_menu_button.dart';
 import 'package:flutter_grit/demo/radio_demo.dart';
@@ -20,6 +21,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(
+            title: '简单对话框 SimpleDialog',
+            page: SimpleDialogDemo(),
+          ),
           ListItem(
             title: 'DateTimeDemo',
             page: DateTimeDemo(),
