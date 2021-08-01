@@ -23,18 +23,31 @@ class _SwitchDemoState extends State<SwitchDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SwitchListTile(
+              value: _switchItemA,
+              onChanged: (value) {
+                setState(() {
+                  _switchItemA = value;
+                });
+              },
+              title: Text('Switch Item A'),
+              subtitle: Text('des'),
+              secondary:
+                  Icon(_switchItemA ? Icons.visibility : Icons.visibility_off),
+              selected: _switchItemA,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(_switchItemA ? '开' : '关'),
-                Switch(
+                /*Switch(
                   value: _switchItemA,
                   onChanged: (value) {
                     setState(() {
                       _switchItemA = value;
                     });
                   },
-                ),
+                ),*/
               ],
             ),
           ],
