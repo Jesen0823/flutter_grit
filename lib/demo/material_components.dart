@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/button_demo.dart';
+import 'package:flutter_grit/demo/popup_menu_button.dart';
 
 import 'floating_action_button_demo.dart';
 
@@ -20,6 +21,10 @@ class MaterialComponents extends StatelessWidget {
           ListItem(
             title: 'Button',
             page: ButtonDemo(),
+          ),
+          ListItem(
+              title: 'PopupMenuButton',
+              page: PopupMenuDemo(),
           ),
         ],
       ),
