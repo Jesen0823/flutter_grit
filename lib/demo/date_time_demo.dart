@@ -10,7 +10,10 @@ class DateTimeDemo extends StatefulWidget {
 
 class _DateTimeDemoState extends State<DateTimeDemo> {
   DateTime selectDate = DateTime.now();
-
+  TimeOfDay selectTime = TimeOfDay(
+    hour: 9,
+    minute: 30,
+  );
   void _selectDate() async {
     DateTime? dateRet = await showDatePicker(
       context: context,
@@ -21,6 +24,17 @@ class _DateTimeDemoState extends State<DateTimeDemo> {
     if (dateRet == null) return;
     setState(() {
       selectDate = dateRet;
+    });
+  }
+
+  _selectTime() async {
+    final TimeOfDay? timeRet = await showTimePicker(
+      context: context,
+      initialTime: selectTime,
+    );
+    if (timeRet == null) return;
+    setState(() {
+      selectTime = timeRet;
     });
   }
 
@@ -47,7 +61,16 @@ class _DateTimeDemoState extends State<DateTimeDemo> {
                       Icon(Icons.arrow_drop_down),
                     ],
                   ),
-                )
+                ),
+                InkWell(
+                  onTap: _selectTime,
+                  child: Row(
+                    children: [
+                      Text(selectTime.format(context)),
+                      Icon(Icons.arrow_drop_down),
+                    ],
+                  ),
+                ),
               ],
             ),
           ],
