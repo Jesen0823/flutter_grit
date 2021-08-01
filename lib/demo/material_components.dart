@@ -4,6 +4,7 @@ import 'package:flutter_grit/demo/checkout_demo.dart';
 import 'package:flutter_grit/demo/form_demo.dart';
 import 'package:flutter_grit/demo/popup_menu_button.dart';
 import 'package:flutter_grit/demo/radio_demo.dart';
+import 'package:flutter_grit/demo/slider_demo.dart';
 import 'package:flutter_grit/demo/switch_button_demo.dart';
 
 import 'floating_action_button_demo.dart';
@@ -18,6 +19,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(
+            title: 'Slider',
+            page: SliderDemo(),
+          ),
           ListItem(
             title: 'Switch',
             page: SwitchDemo(),
