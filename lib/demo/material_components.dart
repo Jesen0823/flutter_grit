@@ -87,6 +87,16 @@ class FloatingActionButtonDemo extends StatelessWidget {
           _floatingActionButtonNoShape,
         ],
       ),
+      floatingActionButton: _floatingActionButtonNoShape,
+      // 位置设置
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 80.0,
+          color: Colors.grey[500],
+        ),
+        shape: CircularNotchedRectangle(),
+      ),
     );
   }
 }
