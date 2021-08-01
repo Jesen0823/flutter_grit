@@ -27,7 +27,8 @@ class _DateTimeDemoState extends State<DateTimeDemo> {
     });
   }
 
-  _selectTime() async {
+// 异步方法， 执行到await就进入异步,与_selectDate相同
+ Future<void> _selectTime() async {
     final TimeOfDay? timeRet = await showTimePicker(
       context: context,
       initialTime: selectTime,
