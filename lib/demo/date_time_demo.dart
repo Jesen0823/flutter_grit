@@ -9,7 +9,21 @@ class DateTimeDemo extends StatefulWidget {
 }
 
 class _DateTimeDemoState extends State<DateTimeDemo> {
-  final DateTime selectDate = DateTime.now();
+  DateTime selectDate = DateTime.now();
+
+  void _selectDate() async {
+    DateTime? dateRet = await showDatePicker(
+      context: context,
+      initialDate: selectDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2100),
+    );
+    if (dateRet == null) return;
+    setState(() {
+      selectDate = dateRet;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +40,7 @@ class _DateTimeDemoState extends State<DateTimeDemo> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: _selectDate,
                   child: Row(
                     children: [
                       Text(DateFormat.yMMMMd().format(selectDate)),
