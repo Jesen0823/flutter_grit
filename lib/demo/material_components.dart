@@ -171,6 +171,10 @@ class _WidgetDemo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 OutlinedButton(
+                  style: ButtonStyle(
+                    splashFactory: InkSplash.splashFactory,
+                    overlayColor:  MaterialStateProperty.all(Colors.blueGrey),
+                  ),
                   onPressed: () {
                     print('Received click');
                   },
@@ -312,7 +316,51 @@ class _WidgetDemo extends StatelessWidget {
                   },
                 ),
               ],
-            )
+            ),
+            Container(
+              height: 50.0,
+              child: Expanded(
+                child: OutlinedButton.icon(
+                  icon: Icon(Icons.add, color: Colors.redAccent,),
+                  label: Text("Expanded包裹，占满整个屏幕"),
+                  onPressed: (){},
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // ButtonBar是一组按钮
+                Theme(
+                  data: Theme.of(context).copyWith(
+                    buttonTheme: ButtonThemeData(
+                      padding: EdgeInsets.symmetric(horizontal: 32.0),
+                    )
+                  ),
+                  child: ButtonBar(
+                    children: [
+                      TextButton.icon(
+                          onPressed: (){},
+                          icon: Icon(Icons.save, color: Colors.purple,),
+                          label: Text('TextButton.icon 按钮')
+                      ),
+                      TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.blue),
+                          overlayColor: MaterialStateProperty.all(Colors.blue[700]),
+                          shape: MaterialStateProperty.all(
+                              BeveledRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0))
+                          ),
+                        ),
+                        child: Text("Submit"),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
