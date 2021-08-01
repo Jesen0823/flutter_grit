@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/drawer_demo.dart';
 import 'package:flutter_grit/demo/form_demo.dart';
 import 'package:flutter_grit/demo/layout_demo.dart';
+import 'package:flutter_grit/demo/material_components.dart';
 import 'package:flutter_grit/demo/view_dame.dart';
 import 'package:flutter_grit/demo/navigator_demo.dart';
 import 'demo/basic_explore_demo.dart';
@@ -23,11 +24,12 @@ class App extends StatelessWidget {
         //home: NavigatorDemo(),
         //initialRoute: '/',
         // 如果初始路由是下面定义的'/form'，则一打开就展示该页面
-        initialRoute: '/form',
+        initialRoute: '/mdc',
         routes: {
           '/': (context) => Home(),
           '/about': (context) => SecondPage(title: 'About -route'),
           '/form':(context) => FormDemo(),
+          '/mdc':(context) => MaterialComponents(),
         },
         theme: ThemeData(
           primarySwatch: Colors.yellow,
