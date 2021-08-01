@@ -45,32 +45,53 @@ class FormDemo extends StatelessWidget {
 
 // 表单案例2：注册用户TextField
 class RegisterFormDemo extends StatefulWidget {
-  const RegisterFormDemo({Key? key}) : super(key: key);
-
   @override
   _RegisterFormDemoState createState() => _RegisterFormDemoState();
 }
 
 class _RegisterFormDemoState extends State<RegisterFormDemo> {
-  final registerFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
   String userName = '';
   String password = '';
+  // 是否自动验证
+  AutovalidateMode _autovalidate = AutovalidateMode.disabled;
 
-  void _submitRegisterForm(){
-    registerFormKey.currentState!.save();
-    registerFormKey.currentState!.validate();
-    debugPrint('userName: $userName, passWord: $password');
+  void _submitRegisterForm() {
+    debugPrint('click _submitRegisterForm');
+    if (_registerFormKey.currentState!.validate()) {
+      _registerFormKey.currentState!.save();
+      debugPrint('userName: $userName, passWord: $password');
+
+      // 添加SnackBar提示
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("register success."),
+          duration: Duration(
+            milliseconds: 3000,
+          ),
+          action: SnackBarAction(
+              label: "别点我",
+              onPressed: () {
+                print("SnackBar上面的按钮被点击了");
+              }),
+        ),
+      );
+    } else {
+      setState(() {
+        _autovalidate = AutovalidateMode.always;
+      });
+    }
   }
 
-  String? _validatorUserName(value){
-    if(value.isEmpty){
+  String? _validatorUserName(value) {
+    if (value.isEmpty) {
       return 'UserName is required';
     }
     return null;
   }
 
-  String? _validatorPassword(value){
-    if(value.isEmpty){
+  String? _validatorPassword(value) {
+    if (value.isEmpty) {
       return 'password is required';
     }
     return null;
@@ -79,48 +100,56 @@ class _RegisterFormDemoState extends State<RegisterFormDemo> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _registerFormKey,
       child: Column(
         children: [
           TextFormField(
             decoration: InputDecoration(
-                labelText: 'UserName',
-                // 预置字段，用来提示信息，比如错误信息
-                helperText: '',
+              labelText: 'UserName',
+              // 预置字段，用来提示信息，比如错误信息
+              helperText: '',
             ),
-            onSaved: (value){
+            onSaved: (value) {
               userName = value!;
             },
             // 验证表单数据
             validator: _validatorUserName,
+            // 自动验证表单数据
+            //autovalidate: _autovalidate,
+            autovalidateMode: _autovalidate,
           ),
           TextFormField(
             obscureText: true,
             decoration: InputDecoration(
-                labelText: 'Password',
-                // 预置字段，用来提示信息，比如错误信息
-                helperText: '',
+              labelText: 'Password',
+              // 预置字段，用来提示信息，比如错误信息
+              helperText: '',
             ),
-            onSaved: (value){
+            onSaved: (value) {
               password = value!;
             },
             // 验证表单数据
             validator: _validatorPassword,
+            //autovalidate: _autovalidate,
+            autovalidateMode: _autovalidate,
           ),
           SizedBox(
             height: 32.0,
           ),
           Container(
             width: double.infinity,
-            child: RaisedButton(
-              color: Theme.of(context).accentColor,
-              child: Text(
-                'Register',
-                style: TextStyle(color: Colors.white),
-              ),
-              elevation: 0.0,
-              onPressed: _submitRegisterForm,
-            ),
-          )
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  textStyle: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                  primary: Theme.of(context).accentColor,
+                  elevation: 2.0,
+                ),
+                onPressed: _submitRegisterForm,
+                child: const Text('Register')),
+          ),
         ],
       ),
     );
@@ -129,8 +158,6 @@ class _RegisterFormDemoState extends State<RegisterFormDemo> {
 
 // 表单案例1： TextField
 class TextFieldDemo extends StatefulWidget {
-  const TextFieldDemo({Key? key}) : super(key: key);
-
   @override
   _TextFieldDemoState createState() => _TextFieldDemoState();
 }
