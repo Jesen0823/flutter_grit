@@ -33,6 +33,21 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
    );
  }
 
+ // 用来展示交互结果
+ _showSnackBar(String msg){
+   ScaffoldMessenger.of(context).showSnackBar(
+       SnackBar(
+         content: Text('result is: $msg'),
+         action: SnackBarAction(
+           label: 'Ok',
+           onPressed: (){
+
+           },
+         ),
+       )
+   );
+ }
+
  Future _openModalBottomSheet() async {
    final result = await showModalBottomSheet(
        context: context,
@@ -62,15 +77,21 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
          );
        }
    );
+   String tip = 'Nothing';
    switch(result){
      case 'GongGa':
+       tip = 'GongGa';
        break;
      case 'YaAn':
+       tip = 'YaAn';
        break;
      case 'PuEr':
+       tip = 'PuEr';
        break;
      default:
+       tip = 'DunHuang';
    }
+   _showSnackBar(tip);
    debugPrint('You choice is :$result');
  }
 
