@@ -3,6 +3,7 @@ import 'package:flutter_grit/demo/button_demo.dart';
 import 'package:flutter_grit/demo/checkout_demo.dart';
 import 'package:flutter_grit/demo/date_time_demo.dart';
 import 'package:flutter_grit/demo/dialog/alert_dialog_demo.dart';
+import 'package:flutter_grit/demo/dialog/bottom_sheet_demo.dart';
 import 'package:flutter_grit/demo/dialog/simple_dialog.dart';
 import 'package:flutter_grit/demo/form_demo.dart';
 import 'package:flutter_grit/demo/popup_menu_button.dart';
@@ -22,6 +23,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(
+            title: '底部BottomSheet对话框 showBottomSheet',
+            page: BottomSheetDemo(),
+          ),
           ListItem(
             title: '简单对话框 AlertDialog',
             page: AlertDialogDemo(),
