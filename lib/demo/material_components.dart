@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/MDC/chip_demo.dart';
+import 'package:flutter_grit/demo/MDC/data_table_demo.dart';
 import 'package:flutter_grit/demo/button_demo.dart';
 import 'package:flutter_grit/demo/checkout_demo.dart';
 import 'package:flutter_grit/demo/date_time_demo.dart';
@@ -26,6 +27,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(
+              title: '数据表格DataTableDemo',
+              page: DataTableDemo(),
+          ),
           ListItem(
             title: '小碎片Chip',
             page: ChipDemo(),
