@@ -15,6 +15,7 @@ import 'package:flutter_grit/demo/radio_demo.dart';
 import 'package:flutter_grit/demo/slider_demo.dart';
 import 'package:flutter_grit/demo/switch_button_demo.dart';
 
+import 'dialog/paging_datatable_demo.dart';
 import 'floating_action_button_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
@@ -27,6 +28,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(
+            title: '分页数据表格PagingDataTableDemo',
+            page: PagingDataTableDemo(),
+          ),
           ListItem(
               title: '数据表格DataTableDemo',
               page: DataTableDemo(),
