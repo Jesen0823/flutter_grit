@@ -10,6 +10,7 @@ class ChipDemo extends StatefulWidget {
 class _ChipDemoState extends State<ChipDemo> {
 
   List<String> _tags = ['QQ','Wechat','Weibo','Xigua'];
+  String _action = 'Nothing';
 
   @override
   Widget build(BuildContext context) {
@@ -73,11 +74,38 @@ class _ChipDemoState extends State<ChipDemo> {
                       (tag){
                         return Chip(
                           label: Text(tag),
-                          deleteIcon: Icon(_tags[2] == tag ?Icons.check :Icons.clear),
-                          deleteIconColor: _tags[2] == tag ?Colors.green :Colors.pinkAccent,
+                          deleteIcon: Icon(Icons.clear),
+                          deleteIconColor: Colors.pinkAccent,
                           onDeleted: (){
                             setState(() {
                               _tags.remove(tag);
+                            });
+                          },
+                        );
+                      }
+                  ).toList(),
+                ),
+                Divider(
+                  color: Colors.blueGrey,
+                  height: 32.0,
+                  // 缩进
+                  indent: 10.0,
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Text('ActionChip: $_action'),
+                ),
+                Wrap(
+                  spacing: 8.0,
+                  children: _tags.map(
+                          (tag){
+                        return ActionChip(
+                          label: Text(tag),
+                          backgroundColor: Colors.grey[700],
+
+                          onPressed: (){
+                            setState(() {
+                              _action = tag;
                             });
                           },
                         );
