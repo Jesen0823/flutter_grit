@@ -11,6 +11,9 @@ class _ChipDemoState extends State<ChipDemo> {
 
   List<String> _tags = ['QQ','Wechat','Weibo','Xigua'];
   String _action = 'Nothing';
+  // 被选中的集合
+  List<String> _selected = [];
+  String _selectedItem = 'Wechat';
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +115,66 @@ class _ChipDemoState extends State<ChipDemo> {
                       }
                   ).toList(),
                 ),
+                Divider(
+                  color: Colors.blueGrey,
+                  height: 32.0,
+                  // 缩进
+                  indent: 10.0,
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Text('FilterChip,每个标签只有选中与不选中两个状态: ${_selected.toString()}'),
+                ),
+                Wrap(
+                  spacing: 8.0,
+                  children: _tags.map(
+                          (tag){
+                        return FilterChip(
+                          label: Text(tag),
+                          backgroundColor: Colors.blueGrey[700],
+                          selected: _selected.contains(tag),
+                          selectedColor: Colors.greenAccent,
+                          onSelected: (value){
+                            setState(() {
+                              if(_selected.contains(tag)){
+                                _selected.remove(tag);
+                              }else{
+                                _selected.add(tag);
+                              }
+                            });
+                          },
+                        );
+                      }
+                  ).toList(),
+                ),
+                Divider(
+                  color: Colors.blueGrey,
+                  height: 32.0,
+                  // 缩进
+                  indent: 10.0,
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Text('ChoiceChip,单选标签，只能选一个: ${_selectedItem}'),
+                ),
+                Wrap(
+                  spacing: 8.0,
+                  children: _tags.map(
+                          (tag){
+                        return ChoiceChip(
+                          label: Text(tag),
+                          backgroundColor: Colors.grey[700],
+                          selected: _selectedItem == tag,
+                          selectedColor: Colors.green,
+                          onSelected: (value){
+                            setState(() {
+                              _selectedItem = tag;
+                            });
+                          },
+                        );
+                      }
+                  ).toList(),
+                ),
               ],
             ),
           ],
@@ -122,6 +185,8 @@ class _ChipDemoState extends State<ChipDemo> {
         onPressed: () {
           setState(() {
             _tags =['ios','android','flutter','OS'];
+            _selected = [];
+            _selectedItem = 'Wechat';
           });
         },
       ),
