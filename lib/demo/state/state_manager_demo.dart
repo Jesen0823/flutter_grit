@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class StateManagementDemo extends StatefulWidget {
-  const StateManagementDemo({Key? key}) : super(key: key);
 
-  @override
   _StateManagementDemoState createState() => _StateManagementDemoState();
 }
 
-class _StateManagementDemoState extends State<StateManagementDemo> {
+class _StateManagementDemoState extends State<StateManagementDemo>{
+  int _count = 0;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +16,20 @@ class _StateManagementDemoState extends State<StateManagementDemo> {
         title: Text('StateManagementDemo'),
         elevation: 0.0,
       ),
+      body: Center(
+        child: Chip(
+          label: Text('$_count'),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: (){
+          setState(() {
+            _count ++;
+          });
+        },
+      ),
     );
   }
 }
+
