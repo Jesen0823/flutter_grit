@@ -10,9 +10,10 @@ class AlertDialogDemo extends StatefulWidget {
 }
 
 class _AlertDialogDemoState extends State<AlertDialogDemo> {
+  String _choice = 'Nothing';
 
-  _openAlertDialog(){
-    showDialog(
+   Future _openAlertDialog() async {
+     final action = await showDialog(
         context: context,
         // 空白处是否点击可退出
         barrierDismissible: false,
@@ -33,6 +34,17 @@ class _AlertDialogDemoState extends State<AlertDialogDemo> {
           );
         }
     );
+     switch(action){
+       case Action.OK:
+         setState(() {
+           _choice = '已确认';
+         });
+         break;
+       case Action.CANCEL:
+         _choice = '已取消';
+         break;
+       default:
+     }
   }
 
   @override
@@ -47,6 +59,7 @@ class _AlertDialogDemoState extends State<AlertDialogDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('result is :$_choice'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
