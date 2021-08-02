@@ -8,7 +8,35 @@ class ExpansionPanelDemo extends StatefulWidget {
 }
 
 class _ExpansionPanelDemoState extends State<ExpansionPanelDemo> {
-  bool _isExpanded = false;
+  List<ExpansionPanelItem> _expansionPanelItems = <ExpansionPanelItem>[
+    ExpansionPanelItem(
+      headerText: 'Pannel A',
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        width: double.infinity,
+        child: Text('Content of Item A'),
+      ),
+      isExpanded: false,
+    ),
+    ExpansionPanelItem(
+      headerText: 'Pannel B',
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        width: double.infinity,
+        child: Text('Content of Item B'),
+      ),
+      isExpanded: false,
+    ),
+    ExpansionPanelItem(
+      headerText: 'Pannel C',
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        width: double.infinity,
+        child: Text('Content of Item C'),
+      ),
+      isExpanded: false,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,32 +53,40 @@ class _ExpansionPanelDemoState extends State<ExpansionPanelDemo> {
             ExpansionPanelList(
               expansionCallback: (int expanelIndex, bool isExpanded) {
                 setState(() {
-                  _isExpanded = !isExpanded;
+                  _expansionPanelItems[expanelIndex].isExpanded = !isExpanded;
                 });
               },
-              children: [
-                ExpansionPanel(
-                  headerBuilder: (BuildContext context, bool isExpaned) {
+              children: _expansionPanelItems.map((ExpansionPanelItem item) {
+                return ExpansionPanel(
+                  body: item.body,
+                  isExpanded: item.isExpanded,
+                  headerBuilder: (BuildContext context, bool isExpanded) {
                     return Container(
                       padding: EdgeInsets.all(16.0),
                       child: Text(
-                        'ExPansion Item A',
+                        item.headerText,
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     );
                   },
-                  body: Container(
-                    padding: EdgeInsets.all(16.0),
-                    width: double.infinity,
-                    child: Text('Content of Item A'),
-                  ),
-                  isExpanded: _isExpanded,
-                ),
-              ],
+                );
+              }).toList(),
             )
           ],
         ),
       ),
     );
   }
+}
+
+class ExpansionPanelItem {
+  final String headerText;
+  final Widget body;
+  bool isExpanded;
+
+  ExpansionPanelItem({
+    required this.headerText,
+    required this.body,
+    required this.isExpanded,
+  });
 }

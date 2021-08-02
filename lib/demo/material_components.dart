@@ -4,6 +4,7 @@ import 'package:flutter_grit/demo/checkout_demo.dart';
 import 'package:flutter_grit/demo/date_time_demo.dart';
 import 'package:flutter_grit/demo/dialog/alert_dialog_demo.dart';
 import 'package:flutter_grit/demo/dialog/bottom_sheet_demo.dart';
+import 'package:flutter_grit/demo/dialog/expansion_panel_demo.dart';
 import 'package:flutter_grit/demo/dialog/simple_dialog.dart';
 import 'package:flutter_grit/demo/dialog/snackbar_demo.dart';
 import 'package:flutter_grit/demo/form_demo.dart';
@@ -24,6 +25,10 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListItem(
+            title: '收缩面板ExpansionList',
+            page: ExpansionPanelDemo(),
+          ),
           ListItem(
             title: '底部通知SnackBar',
             page: SnackBarDemo(),
