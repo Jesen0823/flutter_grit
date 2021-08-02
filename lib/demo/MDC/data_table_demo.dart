@@ -9,6 +9,9 @@ class DataTableDemo extends StatefulWidget {
 }
 
 class _DataTableDemoState extends State<DataTableDemo> {
+  int  _sortColumnIndex = 0;
+  bool _sortAscending = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,12 +25,31 @@ class _DataTableDemoState extends State<DataTableDemo> {
           children: [
             SimpleDataTable(),
             DataTable(
+              sortColumnIndex: _sortColumnIndex,
+              // 升序排列
+              sortAscending: _sortAscending,
               columns: [
                 DataColumn(
                   label: Container(
                     width: 100.0,
                     child: Text('Title'),
                   ),
+                  onSort: (int index, bool ascending){
+                    setState(() {
+                      _sortColumnIndex = index;
+                      _sortAscending = ascending;
+
+                      // 排序规则
+                      posts.sort((a,b){
+                        if(!ascending){
+                          final c = a;
+                          a = b;
+                          b = c;
+                        }
+                        return a.title.length.compareTo(b.title.length);
+                      });
+                    });
+                  },
                 ),
                 DataColumn(label: Text('Author')),
                 DataColumn(label: Text('Image')),
