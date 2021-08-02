@@ -31,7 +31,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     print('start create a stream.');
     Stream<String> _streamDemo = Stream.fromFuture(fetchData());
     print('start listen stream.');
-    _streamDemo.listen(_onData);
+    _streamDemo.listen(_onData,onError: _onError,onDone: _onDone);
     print('initialize completed..');
   }
 
@@ -39,9 +39,18 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     print('_onData：$data');
   }
 
+  void _onError(error){
+    print('_onError:$error');
+  }
+
+  void _onDone(){
+    print('Done!');
+  }
+
   Future<String> fetchData() async{
     await Future.delayed(Duration(seconds: 5));
-    return 'hello:';
+    throw('error happen!');
+    //return 'hello:';
   }
 
   @override
