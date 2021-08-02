@@ -20,8 +20,8 @@ class _StateManagementDemoState extends State<StateManagementDemo>{
         title: Text('StateManagementDemo'),
         elevation: 0.0,
       ),
-      // father
-      body: Counter(_count,_increaseCount),
+      // 爷爷
+      body: CounterWrap(_count,_increaseCount),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: _increaseCount,
@@ -30,7 +30,24 @@ class _StateManagementDemoState extends State<StateManagementDemo>{
   }
 }
 
-// son
+// 父亲
+class CounterWrap extends StatelessWidget {
+
+  final int count;
+  final VoidCallback increaseCount;
+
+  CounterWrap(this.count,this.increaseCount);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Counter(count,increaseCount),
+    );
+  }
+}
+
+
+// 儿子
 class Counter extends StatelessWidget{
 
   final int count;
@@ -40,11 +57,9 @@ class Counter extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ActionChip(
+    return ActionChip(
         label: Text('$count'),
         onPressed: increaseCount,
-      ),
     );
   }
 }
