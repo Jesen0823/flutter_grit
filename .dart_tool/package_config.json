@@ -200,6 +200,12 @@
       "languageVersion": "2.6"
     },
     {
+      "name": "scoped_model",
+      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/scoped_model-0.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///D:/Flutter/SDK/flutter_stable/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -302,7 +308,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-08-01T15:19:59.127814Z",
+  "generated": "2021-08-02T15:24:54.598571Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
