@@ -52,6 +52,12 @@ class _ChipDemoState extends State<ChipDemo> {
                     backgroundImage: AssetImage("assets/advert_1.jpg"),
                   ),
                 ),
+                Divider(
+                  color: Colors.blueGrey,
+                  height: 32.0,
+                  // 缩进
+                  indent: 10.0,
+                ),
               ],
             ),
           ],
