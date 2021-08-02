@@ -9,7 +9,7 @@ class ChipDemo extends StatefulWidget {
 
 class _ChipDemoState extends State<ChipDemo> {
 
-  final List<String> _tags = ['QQ','Wechat','Weibo','Xigua'];
+  List<String> _tags = ['QQ','Wechat','Weibo','Xigua'];
 
   @override
   Widget build(BuildContext context) {
@@ -88,6 +88,14 @@ class _ChipDemoState extends State<ChipDemo> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.restore),
+        onPressed: () {
+          setState(() {
+            _tags =['ios','android','flutter','OS'];
+          });
+        },
       ),
     );
   }
