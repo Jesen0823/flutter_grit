@@ -25,7 +25,7 @@ class App extends StatelessWidget {
         //home: NavigatorDemo(),
         //initialRoute: '/',
         // 如果初始路由是下面定义的'/form'，则一打开就展示该页面
-        initialRoute: '/mdc',
+        initialRoute: '/state_management',
         routes: {
           '/': (context) => Home(),
           '/about': (context) => SecondPage(title: 'About -route'),
