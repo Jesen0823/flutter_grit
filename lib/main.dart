@@ -11,6 +11,7 @@ import 'demo/bottom_navigator_bar.dart';
 import 'demo/listview_demo.dart';
 import 'demo/navigator_demo.dart';
 import 'demo/sliver_demo.dart';
+import 'demo/srtream/stream_demo.dart';
 import 'demo/state/state_manager_demo.dart';
 import 'model/post.dart';
 
@@ -25,13 +26,14 @@ class App extends StatelessWidget {
         //home: NavigatorDemo(),
         //initialRoute: '/',
         // 如果初始路由是下面定义的'/form'，则一打开就展示该页面
-        initialRoute: '/state_management',
+        initialRoute: '/stream',
         routes: {
           '/': (context) => Home(),
           '/about': (context) => SecondPage(title: 'About -route'),
           '/form':(context) => FormDemo(),
           '/mdc':(context) => MaterialComponents(),
           '/state_management':(context) => StateManagementDemo(),
+          '/stream':(context) => StreamDemo(),
         },
         theme: ThemeData(
           primarySwatch: Colors.yellow,
