@@ -1,105 +1,108 @@
 class Post {
-  const Post(
-      {required this.title,
-      required this.author,
-      required this.imageUrl,
-      required this.description});
+  Post({
+    required this.title,
+    required this.author,
+    required this.imageUrl,
+    required this.description,
+  });
 
   final String title;
   final String author;
   final String imageUrl;
   final String description;
+
+  bool selected = false;
 }
 
 final List<Post> posts = [
   Post(
     title: 'Candy Shop',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/candy-shop.jpg',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/candy-shop.jpg',
   ),
   Post(
     title: 'Childhood in a picture',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/childhood-in-a-picture.jpg',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/childhood-in-a-picture.jpg',
   ),
   Post(
     title: 'Contained',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/contained.jpg',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/contained.jpg',
   ),
   Post(
     title: 'Dragon',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/dragon.jpg',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/dragon.jpg',
   ),
   Post(
     title: 'Free Hugs',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/free_hugs.jpg',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/free_hugs.jpg',
   ),
   Post(
     title: 'Gravity Falls',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/gravity-falls.png',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/gravity-falls.png',
   ),
   Post(
     title: 'Icecream Truck',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/icecreamtruck.png',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/icecreamtruck.png',
   ),
   Post(
     title: 'keyclack',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/keyclack.jpg',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/keyclack.jpg',
   ),
   Post(
     title: 'Overkill',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/overkill.png',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/overkill.png',
   ),
   Post(
     title: 'Say Hello to Barry',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/say-hello-to-barry.jpg',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/say-hello-to-barry.jpg',
   ),
   Post(
     title: 'Space Skull',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/space-skull.jpg',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/space-skull.jpg',
   ),
   Post(
     title: 'The Old Fashioned',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/the-old-fashioned.png',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/the-old-fashioned.png',
   ),
   Post(
     title: 'Tornado',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/tornado.jpg',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/tornado.jpg',
   ),
   Post(
     title: 'Undo',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/undo.jpg',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/undo.jpg',
   ),
   Post(
     title: 'White Dragon',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://resources.ninghao.net/images/white-dragon.jpg',
-    description: 'It gives error reading dependency file and then flutter crashes. Is it something to do with dart to or am i missing something here?',
+    description: 'Esse ut nulla velit reprehenderit veniam sint nostrud nulla exercitation ipsum. Officia deserunt aliquip aliquip excepteur eiusmod dolor. Elit amet ipsum labore sint occaecat dolore tempor officia irure voluptate ad. Veniam laboris deserunt aute excepteur sit deserunt dolor esse dolor velit sint nulla anim ut. Reprehenderit voluptate adipisicing culpa magna ea nulla ullamco consectetur. Cupidatat adipisicing consequat adipisicing sit consectetur dolor occaecat.',
+    imageUrl: 'https://resources.ninghao.org/images/white-dragon.jpg',
   )
 ];

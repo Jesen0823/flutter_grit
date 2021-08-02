@@ -9,7 +9,7 @@ class DataTableDemo extends StatefulWidget {
 }
 
 class _DataTableDemoState extends State<DataTableDemo> {
-  int  _sortColumnIndex = 0;
+  int _sortColumnIndex = 0;
   bool _sortAscending = true;
 
   @override
@@ -28,20 +28,22 @@ class _DataTableDemoState extends State<DataTableDemo> {
               sortColumnIndex: _sortColumnIndex,
               // 升序排列
               sortAscending: _sortAscending,
+              // 全选
+              onSelectAll: (value) {},
               columns: [
                 DataColumn(
                   label: Container(
-                    width: 100.0,
+                    width: 70.0,
                     child: Text('Title'),
                   ),
-                  onSort: (int index, bool ascending){
+                  onSort: (int index, bool ascending) {
                     setState(() {
                       _sortColumnIndex = index;
                       _sortAscending = ascending;
 
                       // 排序规则
-                      posts.sort((a,b){
-                        if(!ascending){
+                      posts.sort((a, b) {
+                        if (!ascending) {
                           final c = a;
                           a = b;
                           b = c;
@@ -56,6 +58,16 @@ class _DataTableDemoState extends State<DataTableDemo> {
               ],
               rows: posts.map((post) {
                 return DataRow(
+                  // 表格的行的选择
+                  selected: post.selected,
+                  // 勾选选项回调
+                  onSelectChanged: (value) {
+                    setState(() {
+                      if (post.selected != value) {
+                        post.selected = value!;
+                      }
+                    });
+                  },
                   cells: [
                     DataCell(Text(post.title)),
                     DataCell(Text(post.author)),
