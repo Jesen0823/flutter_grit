@@ -11,6 +11,7 @@ import 'demo/bottom_navigator_bar.dart';
 import 'demo/listview_demo.dart';
 import 'demo/navigator_demo.dart';
 import 'demo/sliver_demo.dart';
+import 'demo/state/state_manager_demo.dart';
 import 'model/post.dart';
 
 void main() => runApp(App());
@@ -30,6 +31,7 @@ class App extends StatelessWidget {
           '/about': (context) => SecondPage(title: 'About -route'),
           '/form':(context) => FormDemo(),
           '/mdc':(context) => MaterialComponents(),
+          '/state_management':(context) => StateManagementDemo(),
         },
         theme: ThemeData(
           primarySwatch: Colors.yellow,
