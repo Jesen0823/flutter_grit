@@ -52,6 +52,13 @@ class _ChipDemoState extends State<ChipDemo> {
                     backgroundImage: AssetImage("assets/advert_1.jpg"),
                   ),
                 ),
+                Chip(
+                  label: Text('City'),
+                  onDeleted: (){},
+                  deleteIcon: Icon(Icons.delete_rounded),
+                  deleteIconColor: Colors.pinkAccent,
+                  deleteButtonTooltipMessage: 'Removed it',
+                ),
                 Divider(
                   color: Colors.blueGrey,
                   height: 32.0,
