@@ -21,18 +21,18 @@ class _ChipDemoState extends State<ChipDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            // Wrap可以自动换行，子view之间不需要Size的Box()
+            Wrap(
+              spacing: 8.0,
+              runSpacing: 10.0,
               children: [
                 Chip(
                     label: Text('Life'),
                 ),
-                SizedBox(width: 4.0,),
                 Chip(
                   label: Text('Flower'),
                   backgroundColor: Colors.orange,
                 ),
-                SizedBox(width: 4.0,),
                 Chip(
                   label: Text('Apple'),
                   avatar: CircleAvatar(
@@ -40,11 +40,16 @@ class _ChipDemoState extends State<ChipDemo> {
                     child: Text('周'),
                   ),
                 ),
-                SizedBox(width: 4.0,),
                 Chip(
                   label: Text('Shanghai'),
                   avatar: CircleAvatar(
                     backgroundImage: AssetImage("assets/advert_2.jpg"),
+                  ),
+                ),
+                Chip(
+                  label: Text('Hangzhou'),
+                  avatar: CircleAvatar(
+                    backgroundImage: AssetImage("assets/advert_1.jpg"),
                   ),
                 ),
               ],
