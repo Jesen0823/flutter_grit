@@ -33,8 +33,8 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
    );
  }
 
- _openModalBottomSheet(){
-   showModalBottomSheet(
+ Future _openModalBottomSheet() async {
+   final result = await showModalBottomSheet(
        context: context,
        builder: (BuildContext context){
          return Container(
@@ -43,21 +43,35 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
              children: [
                ListTile(
                  title: Text('去西藏贡嘎'),
+                 onTap: () =>Navigator.pop(context,'GongGa'),
                ),
                ListTile(
                  title: Text('去四川雅安'),
+                 onTap: () =>Navigator.pop(context,'YaAn'),
                ),
                ListTile(
                  title: Text('去云南普洱'),
+                 onTap: () =>Navigator.pop(context,'PuEr'),
                ),
                ListTile(
                  title: Text('去西部敦煌'),
+                 onTap: () =>Navigator.pop(context,'DunHuang'),
                ),
              ],
            ),
          );
        }
    );
+   switch(result){
+     case 'GongGa':
+       break;
+     case 'YaAn':
+       break;
+     case 'PuEr':
+       break;
+     default:
+   }
+   debugPrint('You choice is :$result');
  }
 
   @override
