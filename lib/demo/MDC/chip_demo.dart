@@ -9,6 +9,8 @@ class ChipDemo extends StatefulWidget {
 
 class _ChipDemoState extends State<ChipDemo> {
 
+  final List<String> _tags = ['QQ','Wechat','Weibo','Xigua'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +66,23 @@ class _ChipDemoState extends State<ChipDemo> {
                   height: 32.0,
                   // 缩进
                   indent: 10.0,
+                ),
+                Wrap(
+                  spacing: 8.0,
+                  children: _tags.map(
+                      (tag){
+                        return Chip(
+                          label: Text(tag),
+                          deleteIcon: Icon(_tags[2] == tag ?Icons.check :Icons.clear),
+                          deleteIconColor: _tags[2] == tag ?Colors.green :Colors.pinkAccent,
+                          onDeleted: (){
+                            setState(() {
+                              _tags.remove(tag);
+                            });
+                          },
+                        );
+                      }
+                  ).toList(),
                 ),
               ],
             ),
