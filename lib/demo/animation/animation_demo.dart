@@ -55,11 +55,11 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
     _colorAnimation = ColorTween(begin:Colors.blue, end:Colors.purple)
         .animate(_curvedAnim);
 
-    _animationController.addListener(() {
+    /*_animationController.addListener(() {
       print('listener, value:${_animationController.value}');
       setState(() {
       });
-    });
+    });*/
 
     _animationController.addStatusListener((status) {
       _status = status.toString();
@@ -81,22 +81,43 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
           Text(_status,
             style: TextStyle(fontSize: 30.0),
           ),
-          IconButton(
-            icon: Icon(Icons.favorite,),
-            iconSize: _animation.value as double,
-            color: _colorAnimation.value!,
-            onPressed: () {
-              switch(_animationController.status){
-                case AnimationStatus.completed:
-                  _animationController.reverse();
-                  break;
-                default:
-                  _animationController.forward();
-              }
-            },
+          AnimatedHeart(
+              animations: [
+                _animation,
+                _colorAnimation,
+              ],
+              controller: _animationController,
           ),
         ],
       ),
+    );
+  }
+}
+
+class AnimatedHeart extends AnimatedWidget{
+  final List animations;
+  final AnimationController controller;
+
+  AnimatedHeart({
+    required this.animations,
+    required this.controller
+}) : super(listenable: controller);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(Icons.favorite,),
+      iconSize: animations[0].value as double,
+      color: animations[1].value!,
+      onPressed: () {
+        switch(controller.status){
+          case AnimationStatus.completed:
+            controller.reverse();
+            break;
+          default:
+            controller.forward();
+        }
+      },
     );
   }
 }
