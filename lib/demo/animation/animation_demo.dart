@@ -22,31 +22,44 @@ class AnimationDemoHome extends StatefulWidget {
   _AnimationDemoHomeState createState() => _AnimationDemoHomeState();
 }
 
-class _AnimationDemoHomeState extends State<AnimationDemoHome> with TickerProviderStateMixin{
+class _AnimationDemoHomeState extends State<AnimationDemoHome>
+    with TickerProviderStateMixin {
   late AnimationController _animationController;
-  
+
   @override
   void initState() {
     super.initState();
     _animationController = AnimationController(
-        duration: Duration(milliseconds: 1000),
-        vsync: this,
+      // 初始值
+      value: 32.0,
+      lowerBound: 0.0,
+      // 设置最大最小值
+      upperBound: 100.0,
+      duration: Duration(milliseconds: 3000),
+      vsync: this,
     );
-    
+
     _animationController.addListener(() {
       print('listener, value:${_animationController.value}');
+      setState(() {});
     });
     // 开启动画
-    _animationController.forward();
+    //_animationController.forward();
   }
+
   @override
   void dispose() {
     super.dispose();
     _animationController.dispose();
   }
-  
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ActionChip(
+      label: Text('${_animationController.value}'),
+      onPressed: () {
+        _animationController.forward();
+      },
+    );
   }
 }
