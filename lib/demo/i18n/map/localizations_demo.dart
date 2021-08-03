@@ -8,6 +8,12 @@ class LocalizationsDemo {
 
   LocalizationsDemo(this.locale);
 
+  static LocalizationsDemo? of(BuildContext context){
+    return Localizations.of<LocalizationsDemo>(
+      context, LocalizationsDemo
+    );
+  }
+
   static Map<String, Map<String, String>> _localized = {
     'en':{
       'title':'hello',

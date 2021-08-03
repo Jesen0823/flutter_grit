@@ -20,7 +20,9 @@ import 'demo/srtream/stream_demo.dart';
 import 'demo/state/state_manager_demo.dart';
 import 'model/post.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_grit/demo/i18n/map/localizations_demo.dart';
+//import 'package:flutter_grit/demo/i18n/map/localizations_demo.dart';
+import 'package:flutter_grit/demo/i18n/intl/localizations_demo_intl.dart';
+
 
 void main() => runApp(App());
 
@@ -30,12 +32,12 @@ class App extends StatelessWidget {
     return MaterialApp(
         // 国际化
         // 设置语言环境方法1：
-        locale: Locale('zh','CN'),
+        //locale: Locale('zh','CN'),
         // 设置语言环境方法2：
-        /*localeListResolutionCallback:
+        localeListResolutionCallback:
             (List<Locale>? locale, Iterable<Locale>? supportedLocales) {
-          return Locale('zh', 'CN');
-        },*/
+          return Locale('en', 'US');
+        },
         localizationsDelegates: [
           LocalizationsDemoDelegate(),
           GlobalMaterialLocalizations.delegate,
