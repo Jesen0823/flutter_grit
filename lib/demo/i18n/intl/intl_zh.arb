@@ -1,0 +1,17 @@
+{
+  "@@last_modified": "2021-08-03T23:51:11.897450",
+  "title": "你好",
+  "@title": {
+    "description": "本地化案例",
+    "type": "text",
+    "placeholders": {}
+  },
+  "greet": "你好 {name}",
+  "@greet": {
+    "description": "问候你",
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  }
+}
