@@ -49,13 +49,17 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     super.initState();
 
     print('start create a stream.');
-    _streamController = StreamController<String>();
+    // 普通Controller只能添加一个订阅
+    //_streamController = StreamController<String>();
+    // 可以添加多个订阅的controller
+    _streamController = StreamController.broadcast();
     //Stream<String> _streamDemo = Stream.fromFuture(fetchData());
     print('start listen stream.');
     /*_streanDemoSubscription
     = _streamDemo.listen(_onData,onError: _onError,onDone: _onDone);*/
     _streanDemoSubscription
     = _streamController.stream.listen(_onData,onError: _onError,onDone: _onDone);
+    _streamController.stream.listen(_onData_2,onError: _onError,onDone: _onDone);
 
     _streamSink = _streamController.sink;
     print('initialize completed..');
@@ -63,6 +67,10 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
 
   void _onData(String data){
     print('_onData：$data');
+  }
+
+  void _onData_2(String data){
+   print('_onData_2:$data');
   }
 
   void _onError(error){
