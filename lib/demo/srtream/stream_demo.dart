@@ -28,6 +28,8 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
  late StreamSubscription _streanDemoSubscription;
  late StreamController<String> _streamController;
  late StreamSink _streamSink;
+ String _result1 = '?';
+ String _result2 = '?';
 
  @override
   void dispose() {
@@ -66,10 +68,16 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   }
 
   void _onData(String data){
+    setState(() {
+      _result1 = data;
+    });
     print('_onData：$data');
   }
 
   void _onData_2(String data){
+   setState(() {
+     _result2 = data;
+   });
    print('_onData_2:$data');
   }
 
@@ -104,24 +112,30 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-                onPressed: _pauseStream,
-                child: Text('pause'),
-            ),
-            ElevatedButton(
-              onPressed: _resumeStream,
-              child: Text('Resume'),
-            ),
-            ElevatedButton(
-              onPressed: _cancelStream,
-              child: Text('Cancel'),
-            ),
-            ElevatedButton(
-              onPressed: _addDataToStream,
-              child: Text('Add to Controller'),
+            Text('$_result1 : $_result2'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: _pauseStream,
+                  child: Text('pause'),
+                ),
+                ElevatedButton(
+                  onPressed: _resumeStream,
+                  child: Text('Resume'),
+                ),
+                ElevatedButton(
+                  onPressed: _cancelStream,
+                  child: Text('Cancel'),
+                ),
+                ElevatedButton(
+                  onPressed: _addDataToStream,
+                  child: Text('Add to Controller'),
+                ),
+              ],
             ),
           ],
         ),
