@@ -25,20 +25,27 @@ class AnimationDemoHome extends StatefulWidget {
 class _AnimationDemoHomeState extends State<AnimationDemoHome>
     with TickerProviderStateMixin {
   late AnimationController _animationController;
+  late Animation _animation;
+  late Animation _colorAnimation;
   String _status = 'init';
 
   @override
   void initState() {
     super.initState();
     _animationController = AnimationController(
+      // 注释掉，因为用animation和Tween了
       // 初始值
-      value: 32.0,
-      lowerBound: 32.0,
+      //value: 32.0,
+      //lowerBound: 32.0,
       // 设置最大最小值
-      upperBound: 100.0,
+      //upperBound: 100.0,
       duration: Duration(milliseconds: 3000),
       vsync: this,
     );
+
+    _animation = Tween(begin: 32.0, end: 100.0).animate(_animationController);
+    _colorAnimation = ColorTween(begin:Colors.blue, end:Colors.purple)
+        .animate(_animationController);
 
     _animationController.addListener(() {
       print('listener, value:${_animationController.value}');
@@ -49,9 +56,6 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
     _animationController.addStatusListener((status) {
       _status = status.toString();
     });
-
-    // 开启动画
-    //_animationController.forward();
   }
 
   @override
@@ -71,7 +75,8 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
           ),
           IconButton(
             icon: Icon(Icons.favorite,),
-            iconSize: _animationController.value,
+            iconSize: _animation.value as double,
+            color: _colorAnimation.value!,
             onPressed: () {
               switch(_animationController.status){
                 case AnimationStatus.completed:
