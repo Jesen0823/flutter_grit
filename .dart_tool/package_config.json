@@ -195,7 +195,7 @@
     },
     {
       "name": "rxdart",
-      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/rxdart-0.25.0",
+      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/rxdart-0.23.1",
       "packageUri": "lib/",
       "languageVersion": "2.6"
     },
@@ -308,7 +308,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-08-02T16:17:20.654835Z",
+  "generated": "2021-08-03T04:35:33.623432Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
