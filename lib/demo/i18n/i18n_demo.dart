@@ -5,6 +5,21 @@ class I18nDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    Locale locale = Localizations.localeOf(context);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('I18nDemo'),
+        elevation: 0.0,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('${locale.toString()}'),
+          ],
+        ),
+      ),
+    );
   }
 }

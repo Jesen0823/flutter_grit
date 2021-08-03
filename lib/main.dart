@@ -20,21 +20,29 @@ import 'demo/srtream/stream_demo.dart';
 import 'demo/state/state_manager_demo.dart';
 import 'model/post.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
 void main() => runApp(App());
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // 国际化
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        // 多语言下控件的方向支持
-        GlobalWidgetsLocalizations.delegate,
-      ],
+        // 国际化
+        // 设置语言环境方法1：
+        //locale: Locale('zh','CN'),
+        // 设置语言环境方法2：
+        localeListResolutionCallback:
+            (List<Locale>? locale, Iterable<Locale>? supportedLocales) {
+          return Locale('zh', 'CN');
+        },
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          // 多语言下控件的方向支持
+          GlobalWidgetsLocalizations.delegate,
+        ],
         supportedLocales: [
-          Locale('en','US'),
-          Locale('zh','CN'),
+          Locale('en', 'US'),
+          Locale('zh', 'CN'),
         ],
 
         //home: Home(),
@@ -46,15 +54,15 @@ class App extends StatelessWidget {
         routes: {
           '/': (context) => Home(),
           '/about': (context) => SecondPage(title: 'About -route'),
-          '/form':(context) => FormDemo(),
-          '/mdc':(context) => MaterialComponents(),
-          '/state_management':(context) => StateManagementDemo(),
-          '/stream':(context) => StreamDemo(),
-          '/rxdart':(context) => RxDartDemo(),
-          '/block':(context) => BlockDemo(),
-          '/http':(context) =>HttpDemo(),
-          '/animation':(context) =>AnimationDemo(),
-          '/i18n':(context) =>I18nDemo(),
+          '/form': (context) => FormDemo(),
+          '/mdc': (context) => MaterialComponents(),
+          '/state_management': (context) => StateManagementDemo(),
+          '/stream': (context) => StreamDemo(),
+          '/rxdart': (context) => RxDartDemo(),
+          '/block': (context) => BlockDemo(),
+          '/http': (context) => HttpDemo(),
+          '/animation': (context) => AnimationDemo(),
+          '/i18n': (context) => I18nDemo(),
         },
         theme: ThemeData(
           primarySwatch: Colors.yellow,
