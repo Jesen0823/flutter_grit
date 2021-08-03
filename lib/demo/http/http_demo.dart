@@ -27,15 +27,18 @@ class HttpDemoHome extends StatefulWidget {
 }
 
 class _HttpDemoHomeState extends State<HttpDemoHome> {
-
   @override
   void initState() {
     super.initState();
-    //fetchPost();
+    //fetchPosts().then((value) => print(value));
 
+    //test();
+  }
+
+  void test(){
     final post = {
-      'title':'hello',
-      'description':'nice Theme.of(context)',
+      'title': 'hello',
+      'description': 'nice Theme.of(context)',
     };
     print(post['title']);
 
@@ -48,12 +51,20 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
     print('dart json:${json.encode(postModel)}');
   }
 
-  fetchPost() async{
-    final response =
-    await http.get(Uri.parse('https://resources.ninghao.net/demo/posts.json'));
+  Future<List<Post>> fetchPosts() async {
+    final response = await http
+        .get(Uri.parse('https://resources.ninghao.net/demo/posts.json'));
     print('statusCode: ${response.statusCode}');
     print('body: ${response.body}');
-
+    if (response.statusCode == 200) {
+      final responseBody = json.decode(response.body);
+      List<Post> posts = responseBody['posts']
+          .map<Post>((item) => Post.fromJson(item))
+          .toList();
+      return posts;
+    } else {
+      throw Exception('Failed to fetch data');
+    }
   }
 
   @override
@@ -62,21 +73,33 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   }
 }
 
-class Post{
+class Post {
+  final int id;
   final String title;
   final String description;
+  final String author;
+  final String imageUrl;
 
   Post(
-      this.title,
-      this.description
-      );
+    this.id,
+    this.title,
+    this.description,
+    this.author,
+    this.imageUrl,
+  );
 
   Post.fromJson(Map json)
-  : title = json['title'],
-  description = json['description'];
+      : id = json['id'],
+        title = json['title'],
+        description = json['description'],
+        author = json['author'],
+        imageUrl = json['imageUrl'];
 
-  Map toJson() =>{
-    'title':title,
-    'description':description,
-  };
+  Map toJson() => {
+        'id': id,
+        'title': title,
+        'description': description,
+        'author': author,
+        'imageUrl': imageUrl,
+      };
 }
