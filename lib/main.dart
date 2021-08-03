@@ -19,13 +19,24 @@ import 'demo/sliver_demo.dart';
 import 'demo/srtream/stream_demo.dart';
 import 'demo/state/state_manager_demo.dart';
 import 'model/post.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
 void main() => runApp(App());
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // 国际化
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        // 多语言下控件的方向支持
+        GlobalWidgetsLocalizations.delegate,
+      ],
+        supportedLocales: [
+          Locale('en','US'),
+          Locale('zh','CN'),
+        ],
+
         //home: Home(),
 
         //home: NavigatorDemo(),

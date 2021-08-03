@@ -198,6 +198,10 @@ flutter
 2.12
 file:///D:/Flutter/SDK/flutter_stable/packages/flutter/
 file:///D:/Flutter/SDK/flutter_stable/packages/flutter/lib/
+flutter_localizations
+2.12
+file:///D:/Flutter/SDK/flutter_stable/packages/flutter_localizations/
+file:///D:/Flutter/SDK/flutter_stable/packages/flutter_localizations/lib/
 flutter_test
 2.12
 file:///D:/Flutter/SDK/flutter_stable/packages/flutter_test/
