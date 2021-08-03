@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_grit/demo/i18n/map/localizations_demo.dart';
 
 class I18nDemo extends StatelessWidget {
   const I18nDemo({Key? key}) : super(key: key);
@@ -17,6 +18,12 @@ class I18nDemo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('${locale.toString()}'),
+            Text(
+              Localizations.of(
+                  context, LocalizationsDemo
+              ).title,
+              style: Theme.of(context).textTheme.headline6,
+            ),
           ],
         ),
       ),
