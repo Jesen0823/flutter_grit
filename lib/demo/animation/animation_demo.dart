@@ -25,6 +25,7 @@ class AnimationDemoHome extends StatefulWidget {
 class _AnimationDemoHomeState extends State<AnimationDemoHome>
     with TickerProviderStateMixin {
   late AnimationController _animationController;
+  String _status = 'init';
 
   @override
   void initState() {
@@ -32,7 +33,7 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
     _animationController = AnimationController(
       // 初始值
       value: 32.0,
-      lowerBound: 0.0,
+      lowerBound: 32.0,
       // 设置最大最小值
       upperBound: 100.0,
       duration: Duration(milliseconds: 3000),
@@ -41,8 +42,14 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
 
     _animationController.addListener(() {
       print('listener, value:${_animationController.value}');
-      setState(() {});
+      setState(() {
+      });
     });
+
+    _animationController.addStatusListener((status) {
+      _status = status.toString();
+    });
+
     // 开启动画
     //_animationController.forward();
   }
@@ -55,11 +62,28 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
 
   @override
   Widget build(BuildContext context) {
-    return ActionChip(
-      label: Text('${_animationController.value}'),
-      onPressed: () {
-        _animationController.forward();
-      },
+    return Center(
+
+      child: Column(
+        children: [
+          Text(_status,
+            style: TextStyle(fontSize: 30.0),
+          ),
+          IconButton(
+            icon: Icon(Icons.favorite,),
+            iconSize: _animationController.value,
+            onPressed: () {
+              switch(_animationController.status){
+                case AnimationStatus.completed:
+                  _animationController.reverse();
+                  break;
+                default:
+                  _animationController.forward();
+              }
+            },
+          ),
+        ],
+      ),
     );
   }
 }
