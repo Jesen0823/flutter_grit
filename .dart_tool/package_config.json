@@ -93,7 +93,7 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/http-0.13.3",
+      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/http-0.13.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -308,7 +308,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-08-03T07:07:56.127105Z",
+  "generated": "2021-08-03T09:07:33.846417Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

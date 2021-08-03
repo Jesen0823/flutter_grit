@@ -10,6 +10,7 @@ import 'package:flutter_grit/demo/navigator_demo.dart';
 import 'demo/basic_explore_demo.dart';
 import 'demo/block/block_demo.dart';
 import 'demo/bottom_navigator_bar.dart';
+import 'demo/http/http_demo.dart';
 import 'demo/listview_demo.dart';
 import 'demo/navigator_demo.dart';
 import 'demo/sliver_demo.dart';
@@ -28,7 +29,7 @@ class App extends StatelessWidget {
         //home: NavigatorDemo(),
         //initialRoute: '/',
         // 如果初始路由是下面定义的'/form'，则一打开就展示该页面
-        initialRoute: '/block',
+        initialRoute: '/http',
         routes: {
           '/': (context) => Home(),
           '/about': (context) => SecondPage(title: 'About -route'),
@@ -38,6 +39,7 @@ class App extends StatelessWidget {
           '/stream':(context) => StreamDemo(),
           '/rxdart':(context) => RxDartDemo(),
           '/block':(context) => BlockDemo(),
+          '/http':(context) =>HttpDemo(),
         },
         theme: ThemeData(
           primarySwatch: Colors.yellow,
