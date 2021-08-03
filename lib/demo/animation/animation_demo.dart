@@ -27,6 +27,7 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
   late AnimationController _animationController;
   late Animation _animation;
   late Animation _colorAnimation;
+  late CurvedAnimation _curvedAnim;
   String _status = 'init';
 
   @override
@@ -43,9 +44,16 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome>
       vsync: this,
     );
 
-    _animation = Tween(begin: 32.0, end: 100.0).animate(_animationController);
+    _curvedAnim = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.bounceOut,
+    );
+    /*_animation = Tween(begin: 32.0, end: 100.0).animate(_animationController);
     _colorAnimation = ColorTween(begin:Colors.blue, end:Colors.purple)
-        .animate(_animationController);
+        .animate(_animationController);*/
+    _animation = Tween(begin: 32.0, end: 100.0).animate(_curvedAnim);
+    _colorAnimation = ColorTween(begin:Colors.blue, end:Colors.purple)
+        .animate(_curvedAnim);
 
     _animationController.addListener(() {
       print('listener, value:${_animationController.value}');
