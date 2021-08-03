@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/state/state_manager_demo.dart';
 
@@ -8,10 +10,17 @@ class CounterHome extends StatelessWidget {
   Widget build(BuildContext context) {
     CounterBloc _counterBloc = CounterProvider.of(context).bloc;
     return Center(
-      child: ActionChip(
-        label: Text('0'),
-        onPressed: (){
-          _counterBloc.log();
+      child: StreamBuilder(
+        initialData: 0,
+        stream: _counterBloc.count,
+        builder: (context, snapshot){
+          return ActionChip(
+            label: Text('${snapshot.data}'),
+            onPressed: (){
+              _counterBloc.log();
+              _counterBloc.counter.add(1);
+            },
+          );
         },
       ),
     );
@@ -28,14 +37,35 @@ class CounterActionButton extends StatelessWidget {
       child: Icon(Icons.add),
         onPressed: (){
           _counterBloc.log();
+          _counterBloc.counter.add(1);
         },
     );
   }
+
 }
 
 class CounterBloc{
+  int _count = 0;
+  final _counterActionController = StreamController<int>();
+  StreamSink<int> get counter => _counterActionController.sink;
+  final _counterController = StreamController<int>();
+  Stream<int> get count => _counterController.stream;
+
   void log(){
     print('bloc');
+  }
+
+  CounterBloc(){
+    _counterActionController.stream.listen((event) {
+      print('CounterBloc: $event');
+      _count = event +_count;
+      _counterController.add(_count);
+    });
+  }
+
+  void dispose(){
+    _counterActionController.close();
+    _counterController.close();
   }
 }
 
