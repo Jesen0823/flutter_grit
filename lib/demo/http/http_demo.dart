@@ -45,6 +45,7 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
     print('the type of postJsonConverted: ${postJsonConverted is Map}');
     final postModel = Post.fromJson(postJsonConverted);
     print('dart bean: ${postModel.title}');
+    print('dart json:${json.encode(postModel)}');
   }
 
   fetchPost() async{
@@ -74,5 +75,8 @@ class Post{
   : title = json['title'],
   description = json['description'];
 
-
+  Map toJson() =>{
+    'title':title,
+    'description':description,
+  };
 }
