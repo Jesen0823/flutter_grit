@@ -36,7 +36,9 @@ class _RxDartDemoHomeState extends State<RxDartDemoHome> {
     super.initState();
 
     _textFieldSubject = PublishSubject<String>();
-    _textFieldSubject.where((event) => event.length > 3) // 添加条件
+    _textFieldSubject
+        //.where((event) => event.length > 3) // 添加条件
+        //.debounce(Duration(milliseconds: 500))
         .listen((value) {
       print('_textFieldSubject：$value');
     });
