@@ -27,6 +27,7 @@ class StreamDemoHome extends StatefulWidget {
 class _StreamDemoHomeState extends State<StreamDemoHome> {
  late StreamSubscription _streanDemoSubscription;
  late StreamController<String> _streamController;
+ late StreamSink _streamSink;
 
  @override
   void dispose() {
@@ -37,7 +38,10 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
   void _addDataToStream() async{
     print('add Data to stream');
     String data = await fetchData();
-    _streamController.add(data);
+    // 使用Controller添加数据
+    //_streamController.add(data);
+    // 使用sink添加数据
+    _streamSink.add(data);
   }
 
   @override
@@ -53,6 +57,7 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     _streanDemoSubscription
     = _streamController.stream.listen(_onData,onError: _onError,onDone: _onDone);
 
+    _streamSink = _streamController.sink;
     print('initialize completed..');
   }
 
