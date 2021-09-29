@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_grit/demo/all_state_manager_demo.dart';
 import 'package:flutter_grit/demo/drawer_demo.dart';
 import 'package:flutter_grit/demo/form_demo.dart';
 import 'package:flutter_grit/demo/layout_demo.dart';
@@ -11,7 +12,7 @@ import 'demo/bottom_navigator_bar.dart';
 import 'demo/listview_demo.dart';
 import 'demo/navigator_demo.dart';
 import 'demo/sliver_demo.dart';
-import 'demo/state/state_manager_demo.dart';
+import 'demo/state/state_manager_scopedmode_demo.dart';
 import 'model/post.dart';
 
 void main() => runApp(App());
@@ -31,7 +32,7 @@ class App extends StatelessWidget {
           '/about': (context) => SecondPage(title: 'About -route'),
           '/form':(context) => FormDemo(),
           '/mdc':(context) => MaterialComponents(),
-          '/state_management':(context) => StateManagementDemo(),
+          '/state_management':(context) => AllStateManagerDemo(),
         },
         theme: ThemeData(
           primarySwatch: Colors.yellow,
