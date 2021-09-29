@@ -61,12 +61,14 @@ class _StreamDemoHomeState extends State<StreamDemoHome> {
     = _streamDemo.listen(_onData,onError: _onError,onDone: _onDone);*/
     _streanDemoSubscription
     = _streamController.stream.listen(_onData,onError: _onError,onDone: _onDone);
+
     _streamController.stream.listen(_onData_2,onError: _onError,onDone: _onDone);
 
     _streamSink = _streamController.sink;
     print('initialize completed..');
   }
 
+  // 当stream有数据时的回调
   void _onData(String data){
     setState(() {
       _result1 = data;
