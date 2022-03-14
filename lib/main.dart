@@ -4,16 +4,15 @@ import 'package:flutter_grit/demo/drawer_demo.dart';
 import 'package:flutter_grit/demo/form_demo.dart';
 import 'package:flutter_grit/demo/layout_demo.dart';
 import 'package:flutter_grit/demo/material_components.dart';
-import 'package:flutter_grit/demo/view_dame.dart';
 import 'package:flutter_grit/demo/navigator_demo.dart';
+import 'package:flutter_grit/demo/view_dame.dart';
+
 import 'demo/basic_explore_demo.dart';
 import 'demo/bottom_navigator_bar.dart';
 import 'demo/listview_demo.dart';
 import 'demo/navigator_demo.dart';
-import 'demo/sliver_demo.dart';
 import 'demo/srtream/stream_demo.dart';
 import 'demo/state/state_manager_demo.dart';
-import 'model/post.dart';
 
 void main() => runApp(App());
 
