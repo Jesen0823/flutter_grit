@@ -51,11 +51,14 @@ class _StreamDemo3ControlHomeState extends State<StreamDemo3ControlHome> {
     _streamController = StreamController<String>();
 
     print('start listen stream.');
-
     _streamController.stream.listen(_onData_2,onError: _onError,onDone: _onDone);
 
     print('initialize completed..');
   }
+
+ void _onData(String data){
+   print('_onData:$data');
+ }
 
   void _onData_2(String data){
    print('_onData_2:$data');
