@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class StateManagementDemo extends StatelessWidget {
+class StateManagementByScopedModelDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScopedModel(
       model: CounterModel(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('StateManagementDemo'),
+          title: Text('StateManagementByScopedModelDemo'),
           elevation: 0.0,
         ),
         // 爷爷

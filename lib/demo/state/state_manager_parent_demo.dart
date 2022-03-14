@@ -5,13 +5,13 @@ import 'package:scoped_model/scoped_model.dart';
 /// 在构造方法中传递，比较繁琐混乱
 
 
-class StateManagementDemo2 extends StatefulWidget {
+class StateManagementByParentDemo extends StatefulWidget {
 
   @override
-  State<StatefulWidget> createState() => _StateManagementDemo2State();
+  State<StatefulWidget> createState() => _StateManagementByParentDemoState();
 }
 
-class _StateManagementDemo2State extends State<StateManagementDemo2>{
+class _StateManagementByParentDemoState extends State<StateManagementByParentDemo>{
   int _count = 0;
 
   // 给子Widget用的回调

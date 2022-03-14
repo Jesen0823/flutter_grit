@@ -14,7 +14,9 @@ import 'package:flutter_grit/demo/popup_menu_button.dart';
 import 'package:flutter_grit/demo/radio_demo.dart';
 import 'package:flutter_grit/demo/slider_demo.dart';
 import 'package:flutter_grit/demo/state/state_manager_base_demo.dart';
+import 'package:flutter_grit/demo/state/state_manager_inherited_demo.dart';
 import 'package:flutter_grit/demo/state/state_manager_parent_demo.dart';
+import 'package:flutter_grit/demo/state/state_manager_scopedmode_demo.dart';
 import 'package:flutter_grit/demo/switch_button_demo.dart';
 
 import 'dialog/paging_datatable_demo.dart';
@@ -32,19 +34,19 @@ class AllStateManagerDemo extends StatelessWidget {
         children: [
           ListItem(
             title: '子Widget自己管理状态',
-            page: StateManagerBaseDemo(),
+            page: StateManagerBaseFulDemo(),
           ),
           ListItem(
               title: '由父Widget一级一级向下传递给子Widget',
-              page: StateManagementDemo2(),
+              page: StateManagementByParentDemo(),
           ),
           ListItem(
             title: 'inheritedWidget管理状态',
-            page: StateManagementDemo2(),
+            page: StateManagementByInheritedDemo(),
           ),
           ListItem(
             title: '三方 ScopedMode管理状态',
-            page: StateManagementDemo2(),
+            page: StateManagementByScopedModelDemo(),
           ),
         ],
       ),

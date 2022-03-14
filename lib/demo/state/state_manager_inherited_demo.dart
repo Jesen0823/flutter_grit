@@ -4,13 +4,13 @@ import 'package:scoped_model/scoped_model.dart';
 /// inherited状态管理
 
 
-class StateManagementDemo2 extends StatefulWidget {
+class StateManagementByInheritedDemo extends StatefulWidget {
 
   @override
-  State<StatefulWidget> createState() => _StateManagementDemo2State();
+  State<StatefulWidget> createState() => _StateManagementByInheritedDemoState();
 }
 
-class _StateManagementDemo2State extends State<StateManagementDemo2>{
+class _StateManagementByInheritedDemoState extends State<StateManagementByInheritedDemo>{
   int _count = 0;
 
   // 给子Widget用的回调

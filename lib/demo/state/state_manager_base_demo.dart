@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 /// Widget自己管理状态
 
-class StateManagerBaseDemo extends StatefulWidget {
+class StateManagerBaseFulDemo extends StatefulWidget {
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<StateManagerBaseDemo> {
+class _MyHomePageState extends State<StateManagerBaseFulDemo> {
   int _counter = 0;
 
   void _incrementCounter() {
