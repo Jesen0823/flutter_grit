@@ -1,8 +1,10 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:async';
+
+import 'joke_entity.dart';
 
 class HttpDemo extends StatelessWidget {
   const HttpDemo({Key? key}) : super(key: key);
@@ -22,11 +24,14 @@ class HttpDemo extends StatelessWidget {
 class HttpDemoHome extends StatefulWidget {
   const HttpDemoHome({Key? key}) : super(key: key);
 
+
   @override
   _HttpDemoHomeState createState() => _HttpDemoHomeState();
 }
 
 class _HttpDemoHomeState extends State<HttpDemoHome> {
+
+
   @override
   void initState() {
     super.initState();
@@ -35,7 +40,7 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
     //test();
   }
 
-  void test() {
+  /*void test() {
     final post = {
       'title': 'hello',
       'description': 'nice Theme.of(context)',
@@ -49,19 +54,26 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
     final postModel = Post.fromJson(postJsonConverted);
     print('dart bean: ${postModel.title}');
     print('dart json:${json.encode(postModel)}');
-  }
+  }*/
 
-  Future<List<Post>> fetchPosts() async {
+  Future<List<JokeShowapiResBodyContentlist>?> fetchPosts() async {
+    /*final response = await http
+        .get(Uri.parse('https://resources.ninghao.net/demo/posts.json'));*/
     final response = await http
-        .get(Uri.parse('https://resources.ninghao.net/demo/posts.json'));
+        .get(Uri.parse('http://route.showapi.com/341-2?showapi_appid=933775&page=1&maxResult=30&showapi_sign=ff8e0e3b0b614f769c52af8378feabd5'));
+
     print('statusCode: ${response.statusCode}');
     print('body: ${response.body}');
+
     if (response.statusCode == 200) {
       final responseBody = json.decode(response.body);
-      List<Post> posts = responseBody['posts']
-          .map<Post>((item) => Post.fromJson(item))
-          .toList();
-      return posts;
+      JokeEntity entity = JokeEntity.fromJson(responseBody);
+      List<JokeShowapiResBodyContentlist>? contents = entity.showapiResBody?.contentlist;
+
+      //List<TuchongPicsFeedList> feedList = responseBody['feedList'] =>
+          /*.map<TuchongPicsFeedListImages>((item) => Post.fromJson(item))
+          .toList();*/
+      return contents;
     } else {
       throw Exception('Failed to fetch data');
     }
@@ -82,11 +94,18 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
         }
         return ListView(
           children: snapshot.data.map<Widget>((item) {
-            return ListTile(
+            /*return ListTile(
               title: Text(item.title),
               subtitle: Text(item.author),
               leading: CircleAvatar(
                 backgroundImage: NetworkImage(item.imageUrl),
+              ),
+            );*/
+            return ListTile(
+              title: Text(item.title),
+              subtitle: Text(item.ct),
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(item.img),
               ),
             );
           }).toList(),
@@ -96,6 +115,7 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   }
 }
 
+/*
 class Post {
   final int id;
   final String title;
@@ -126,3 +146,4 @@ class Post {
         'imageUrl': imageUrl,
       };
 }
+*/

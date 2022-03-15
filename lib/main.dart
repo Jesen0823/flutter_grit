@@ -2,26 +2,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_grit/demo/drawer_demo.dart';
 import 'package:flutter_grit/demo/form_demo.dart';
+//import 'package:flutter_grit/demo/i18n/map/localizations_demo.dart';
+import 'package:flutter_grit/demo/i18n/intl/localizations_demo_intl.dart';
 import 'package:flutter_grit/demo/layout_demo.dart';
 import 'package:flutter_grit/demo/material_components.dart';
+import 'package:flutter_grit/demo/navigator_demo.dart';
 import 'package:flutter_grit/demo/rxdart/rxdart_demo.dart';
 import 'package:flutter_grit/demo/view_dame.dart';
-import 'package:flutter_grit/demo/navigator_demo.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 import 'demo/animation/animation_demo.dart';
 import 'demo/basic_explore_demo.dart';
 import 'demo/block/block_demo.dart';
 import 'demo/bottom_navigator_bar.dart';
 import 'demo/http/http_demo.dart';
 import 'demo/i18n/i18n_demo.dart';
+import 'demo/lifecycle/lifecycle_demo.dart';
 import 'demo/listview_demo.dart';
 import 'demo/navigator_demo.dart';
-import 'demo/sliver_demo.dart';
 import 'demo/srtream/stream_demo.dart';
 import 'demo/state/state_manager_demo.dart';
-import 'model/post.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-//import 'package:flutter_grit/demo/i18n/map/localizations_demo.dart';
-import 'package:flutter_grit/demo/i18n/intl/localizations_demo_intl.dart';
 
 
 void main() => runApp(App());
@@ -54,7 +54,7 @@ class App extends StatelessWidget {
         //home: NavigatorDemo(),
         //initialRoute: '/',
         // 如果初始路由是下面定义的'/form'，则一打开就展示该页面
-        initialRoute: '/i18n',
+        initialRoute: '/http',
         routes: {
           '/': (context) => Home(),
           '/about': (context) => SecondPage(title: 'About -route'),
@@ -67,6 +67,7 @@ class App extends StatelessWidget {
           '/http': (context) => HttpDemo(),
           '/animation': (context) => AnimationDemo(),
           '/i18n': (context) => I18nDemo(),
+          '/lifecycle':(context) => LifeCycleDemo(),
         },
         theme: ThemeData(
           primarySwatch: Colors.yellow,

@@ -39,6 +39,11 @@ class SecondPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
         elevation: 0.5,
+        actions: [
+          BackButton(color: Colors.blue,onPressed: (){
+            Navigator.pop(context);
+          },)
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(
