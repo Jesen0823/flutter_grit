@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'demo3_state.dart';
@@ -9,7 +10,7 @@ class NameCubit3 extends Cubit<Demo3State> {
     emit(const Demo3StateLoading());
     await Future.delayed(const Duration(seconds: 3), () {
       print('---isEmpty:'+data);
-      data.isNotEmpty ? emit(Demo3StateLoaded(data)) : emit(Demo3StateError());
+      data.isNotEmpty ? emit(Demo3StateLoaded(getString(data))) : emit(Demo3StateError());
     });
   }
 
@@ -18,5 +19,10 @@ class NameCubit3 extends Cubit<Demo3State> {
     await Future.delayed(const Duration(seconds: 3), () {
       emit(Demo3StateInitial());
     });
+  }
+
+  String getString(String name){
+    if(name.isEmpty) return '!';
+    return name.substring(0,1).toUpperCase();
   }
 }

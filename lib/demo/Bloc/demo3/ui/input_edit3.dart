@@ -17,18 +17,18 @@ class InputEditField3 extends StatelessWidget {
         const Text("姓名 :"),
         const SizedBox(width: 35),
         SizedBox(
-          width: 50,
+          width: 120,
           child: TextFormField(
             controller: editController,
             autofocus: true,
             onFieldSubmitted: (value) {
               FocusScope.of(context).requestFocus(focusNode);
             },
-            keyboardType: TextInputType.name,
-            inputFormatters: <TextInputFormatter>[
+            keyboardType: TextInputType.text,
+           /* inputFormatters: <TextInputFormatter>[
               FilteringTextInputFormatter.digitsOnly,
               LengthLimitingTextInputFormatter(2),
-            ],
+            ],*/
             textAlign: TextAlign.center,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(

@@ -1,6 +1,8 @@
 part of 'name_cubit3.dart';
 
 /// 维护四种状态： 初始/加载/正确/错误
+
+@immutable
 abstract class Demo3State {
   const Demo3State();
 }

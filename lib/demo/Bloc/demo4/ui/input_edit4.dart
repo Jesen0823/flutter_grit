@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class InputEditField extends StatelessWidget {
-  const InputEditField(
+class InputEditField4 extends StatelessWidget {
+  const InputEditField4(
       {Key? key, required this.focusNode, required this.editController})
       : super(key: key);
 
@@ -15,7 +15,7 @@ class InputEditField extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text("姓名 :"),
-        const SizedBox(width: 35),
+        const SizedBox(width: 45),
         SizedBox(
           width: 160,
           child: TextFormField(

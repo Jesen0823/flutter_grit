@@ -14,19 +14,21 @@ class Demo1HomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: Column(
+
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           BlocBuilder<CountCubit, CountInitial>(
             builder: (context, state) {
-              return Text(state.countValue.toString());
+              return Text(state.countValue.toString(),style: TextStyle(color:Colors.green,fontSize: 36),);
             },
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              buildBtn(Icons.add,
+              buildBtn(Icons.add_circle,
                   () => BlocProvider.of<CountCubit>(context).increment()),
-              buildBtn(Icons.deck,
+              SizedBox(width: 20.0,),
+              buildBtn(Icons.remove_circle,
                   () => BlocProvider.of<CountCubit>(context).decrement()),
             ],
           )
@@ -39,7 +41,7 @@ class Demo1HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: IconButton(
           onPressed: () => myFunction(),
-          icon: Icon(icon),
+          icon: Icon(icon,color: Colors.blue,size:48.0,),
         ),
       );
 }

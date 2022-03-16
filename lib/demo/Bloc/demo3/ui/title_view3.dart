@@ -9,8 +9,8 @@ class TitleView3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: '姓名： ',
-        style: const TextStyle(fontSize: 25.00),
+        text: '头文字： ',
+        style: const TextStyle(fontSize: 25.00,color: Colors.brown),
         children: <TextSpan>[
           TextSpan(
             text: message,

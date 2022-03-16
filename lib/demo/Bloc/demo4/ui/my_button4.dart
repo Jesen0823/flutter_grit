@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_grit/demo/Bloc/demo2/cubit/name_cubit2.dart';
+import 'package:flutter_grit/demo/Bloc/demo4/cubit/name_cubit4.dart';
 
-class ButtonWidget extends StatelessWidget {
-  const ButtonWidget(
+class ButtonWidget4 extends StatelessWidget {
+  const ButtonWidget4(
       {Key? key, required this.focusNode, required this.editController})
       : super(key: key);
 
@@ -19,7 +19,7 @@ class ButtonWidget extends StatelessWidget {
         minimumSize: const Size(175, 50),
       ),
       onPressed: () {
-        BlocProvider.of<NameCubit2>(context)
+        BlocProvider.of<NameCubit4>(context)
             .updateName(editController.text);
       },
       icon: const Icon(Icons.flutter_dash),

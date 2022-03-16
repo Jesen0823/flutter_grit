@@ -16,24 +16,22 @@ class Demo3HomePage extends StatefulWidget {
 }
 
 class _Demo3HomePageState extends State<Demo3HomePage> {
-  //late FocusNode _nameBtnFocusNode;
-  //late TextEditingController _editController;
-  FocusNode _nameBtnFocusNode = FocusNode();
-  TextEditingController _editController = TextEditingController();
+  late FocusNode nameBtnFocusNode;
+  late TextEditingController editController;
 
-  /*@override
+  @override
   void initState() {
     super.initState();
-    _nameBtnFocusNode = FocusNode();
-    _editController = TextEditingController();
-  }*/
+    nameBtnFocusNode = FocusNode();
+    editController = TextEditingController();
+  }
 
-  /*@override
+  @override
   void dispose() {
     nameBtnFocusNode.dispose();
-    _editController.dispose();
+    editController.dispose();
     super.dispose();
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,16 +60,16 @@ class _Demo3HomePageState extends State<Demo3HomePage> {
   Widget buildInitialInput() => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const TitleView3(message: ":)"),
+          const TitleView3(message: "❦"),
           const SizedBox(height: 20),
           InputEditField3(
-            focusNode: _nameBtnFocusNode,
-            editController: _editController,
+            focusNode: nameBtnFocusNode,
+            editController: editController,
           ),
           const SizedBox(height: 10),
           buildBtn(
               icon: Icons.upload,
-              click: () => submitData(_editController.text)),
+              click: () => submitData(editController.text)),
         ],
       );
 
@@ -88,13 +86,13 @@ class _Demo3HomePageState extends State<Demo3HomePage> {
           TitleView3(message: data),
           const SizedBox(height: 20),
           InputEditField3(
-            focusNode: _nameBtnFocusNode,
-            editController: _editController,
+            focusNode: nameBtnFocusNode,
+            editController: editController,
           ),
           const SizedBox(height: 10),
           ButtonWidget3(
-            focusNode: _nameBtnFocusNode,
-            editController: _editController,
+            focusNode: nameBtnFocusNode,
+            editController: editController,
           ),
         ],
       );
