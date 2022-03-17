@@ -141,7 +141,7 @@
     },
     {
       "name": "flutter_cache_manager",
-      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/flutter_cache_manager-2.1.1",
+      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/flutter_cache_manager-2.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.6"
     },
@@ -183,15 +183,15 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/http-0.12.2",
+      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/http-0.13.4",
       "packageUri": "lib/",
-      "languageVersion": "2.4"
+      "languageVersion": "2.14"
     },
     {
       "name": "http_parser",
-      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/http_parser-3.1.4",
+      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/http_parser-4.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.3"
+      "languageVersion": "2.12"
     },
     {
       "name": "image",
@@ -216,6 +216,12 @@
       "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/js-0.6.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "json_annotation",
+      "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/json_annotation-4.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
     },
     {
       "name": "kernel",
@@ -482,7 +488,7 @@
       "languageVersion": "2.14"
     }
   ],
-  "generated": "2022-03-17T06:37:17.948340Z",
+  "generated": "2022-03-17T15:38:38.804042Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }
