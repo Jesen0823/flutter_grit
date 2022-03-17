@@ -30,7 +30,7 @@ dependencies:
   # flutter_cache_manager: ">=2.0.0 <3.0.0"
   flutter_cache_manager: '2.1.2'
 
-  intl: '>=0.15.3 <0.17.0'
+  #intl: '>=0.15.3 <=0.17.0'
   scoped_model: ^1.1.0
   #rxdart: '>0.20.0 <0.27.1'
   rxdart: '>=0.23.1 <0.27.1'
@@ -49,14 +49,15 @@ dependencies:
     path: ./component/bloc_use_demo
   #解决依赖冲突，强制覆写为同一个版本
 dependency_overrides:
-  intl: ^0.17.0
   crypto: ^3.0.0
+  args: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   # 翻译多语言
-  intl_translation: '>=0.14.0+1 <0.17.10+1'
+  #intl_translation: '>=0.14.0+1 <0.17.10+1'
+  build_runner: ^2.1.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

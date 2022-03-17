@@ -23,7 +23,7 @@ class ShowApp extends StatelessWidget {
         brightness: Brightness.light,
         scaffoldBackgroundColor: Colors.amberAccent
       ),
-      home: const LoadingPage(title:'home loading page'),
+      home: const LoadingPage(),
     );
   }
 }

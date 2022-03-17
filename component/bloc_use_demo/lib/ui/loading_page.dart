@@ -5,9 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 
 class LoadingPage extends StatelessWidget {
-  const LoadingPage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const LoadingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
