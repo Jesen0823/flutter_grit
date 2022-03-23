@@ -32,6 +32,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "audio_player_demo",
+      "rootUri": "../component/audio_player_demo",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "auto_route",
       "rootUri": "file:///C:/Users/X1%20Carbon/AppData/Local/Pub/Cache/hosted/pub.flutter-io.cn/auto_route-3.2.4",
       "packageUri": "lib/",
@@ -608,7 +614,7 @@
       "languageVersion": "2.14"
     }
   ],
-  "generated": "2022-03-17T17:36:06.291835Z",
+  "generated": "2022-03-23T15:14:36.058806Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }

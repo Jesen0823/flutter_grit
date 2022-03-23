@@ -398,6 +398,10 @@ flutter_test
 2.12
 file:///D:/Flutter/SDK/flutter_stable/packages/flutter_test/
 file:///D:/Flutter/SDK/flutter_stable/packages/flutter_test/lib/
+audio_player_demo
+2.16
+file:///D:/Flutter/FlutterProjects_main/flutter_grit/component/audio_player_demo/
+file:///D:/Flutter/FlutterProjects_main/flutter_grit/component/audio_player_demo/lib/
 bloc_use_demo
 2.14
 file:///D:/Flutter/FlutterProjects_main/flutter_grit/component/bloc_use_demo/

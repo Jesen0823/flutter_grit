@@ -47,6 +47,9 @@ dependencies:
     # 组件化配置
   bloc_use_demo:
     path: ./component/bloc_use_demo
+  audio_player_demo:
+    path: ./component/audio_player_demo
+
   #解决依赖冲突，强制覆写为同一个版本
 dependency_overrides:
   crypto: ^3.0.0
